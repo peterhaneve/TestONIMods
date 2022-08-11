@@ -1,0 +1,14 @@
+name: STRINGS.WORLDS.TETRAMENT.NAME
+description: STRINGS.WORLDS.TETRAMENT.DESCRIPTION
+coordinatePrefix: DSRT-A
+forbiddenDlcId: EXPANSION1_ID
+
+difficulty: 2
+menuOrder: 10
+
+startWorldIndex: 0
+worldPlacements:
+- world: worlds/Tetrament
+  allowedRings:
+    min: 0
+    max: 0

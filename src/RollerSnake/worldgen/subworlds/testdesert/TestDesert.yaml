@@ -4,7 +4,9 @@ density:
   min: 20
   max: 25
 avoidRadius: 40.0
-minChildCount: 4
+doAvoidPoints: false
+dontRelaxChildren: true
+extraBiomeChildren: 1
 sampleBehaviour: PoissonDisk
 features:
   - type: features/testdesert/OpenDesert
@@ -23,30 +25,37 @@ biomes:
       - LightBugOrange
 tags:
   - IgnoreCaveOverride
-pointsOfInterest:
-  geysers_a:
-    - poi_oilpockets_geyser_a
-    - poi_oilpockets_geyser_b
-    - poi_oilpockets_geyser_c
-  geysers_b:
-    - poi_oilpockets_geyser_d
-    - poi_oilpockets_geyser_e
-    - poi_oilpockets_geyser_f
-  geysers_c:
-    - poi_oilpockets_geyser_a
-    - poi_oilpockets_geyser_b
-    - poi_oilpockets_geyser_c
-    - poi_oilpockets_geyser_d
-    - poi_oilpockets_geyser_e
-    - poi_oilpockets_geyser_f
-  geysers_d:
-    - poi_testdesert_oasis_geyser
-  ruins_a:
-    - poi_testdesert_frag_reservoir
-    - poi_testdesert_snake_room
-  ruins_b:
-    - poi_testdesert_frag_reservoir
-    - poi_testdesert_snake_room
-  spiral_a:
-    - poi_testdesert_fossil_spiral
+subworldTemplateRules:
+  - names:
+      - poi/oil/poi_oilpockets_geyser_a
+      - poi/oil/poi_oilpockets_geyser_b
+      - poi/oil/poi_oilpockets_geyser_c
+    listRule: TryOne
+  - names:
+      - poi/oil/poi_oilpockets_geyser_d
+      - poi/oil/poi_oilpockets_geyser_e
+      - poi/oil/poi_oilpockets_geyser_f
+    listRule: TryOne
+  - names:
+      - poi/oil/poi_oilpockets_geyser_a
+      - poi/oil/poi_oilpockets_geyser_b
+      - poi/oil/poi_oilpockets_geyser_c
+      - poi/oil/poi_oilpockets_geyser_d
+      - poi/oil/poi_oilpockets_geyser_e
+      - poi/oil/poi_oilpockets_geyser_f
+    listRule: TryOne
+  - names:
+      - poi/poi_testdesert_oasis_geyser
+    listRule: TryOne
+  - names:
+      - poi/poi_testdesert_frag_reservoir
+      - poi/poi_testdesert_snake_room
+    listRule: TryOne
+  - names:
+      - poi/poi_testdesert_frag_reservoir
+      - poi/poi_testdesert_snake_room
+    listRule: TryOne
+  - names:
+      - poi/poi_testdesert_fossil_spiral
+    listRule: TryOne
 zoneType: Sandstone

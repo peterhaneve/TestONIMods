@@ -1,74 +1,68 @@
 ﻿using System.Collections.Generic;
-using STRINGS;
 using UnityEngine;
 
-namespace CactusFruit
-{
-    public class CactusFleshGrilledConfig : IEntityConfig
-    {
-        public const string Id = "CactusFleshGrilled";
+namespace RollerSnake {
+	public class CactusFleshGrilledConfig : IEntityConfig {
+		public const string Id = "CactusFleshGrilled";
+		
+		public ComplexRecipe Recipe;
 
-        public static string Name = UI.FormatAsLink("Grilled Cactus Flesh", Id.ToUpper());
+		public GameObject CreatePrefab() {
+			var cactusFleshGrilled = EntityTemplates.CreateLooseEntity(
+				id: Id,
+				name: RollerSnakeStrings.ITEMS.FOOD.CACTUSFLESHGRILLED.NAME,
+				desc: RollerSnakeStrings.ITEMS.FOOD.CACTUSFLESHGRILLED.DESC,
+				mass: 1f,
+				unitMass: false,
+				anim: Assets.GetAnim("cactusfleshgrilled_kanim"),
+				initialAnim: "object",
+				sceneLayer: Grid.SceneLayer.Front,
+				collisionShape: EntityTemplates.CollisionShape.RECTANGLE,
+				width: 0.8f,
+				height: 0.4f,
+				isPickupable: true);
 
-        public static string Description = $"The grilled flesh of a {CactusFruitConfig.Name}.\n\nGrilling renders the prickly bits mostly harmless.";
+			var foodInfo = new EdiblesManager.FoodInfo(
+				id: Id,
+				dlcId: DlcManager.VANILLA_ID,
+				caloriesPerUnit: 2800000f,
+				quality: TUNING.FOOD.FOOD_QUALITY_MEDIOCRE,
+				preserveTemperatue: 255.15f,
+				rotTemperature: 277.15f,
+				spoilTime: 2400f,
+				can_rot: true);
 
-        public static string RecipeDescription = $"Tasty grilled {CactusFleshConfig.Name}.";
+			var foodEntity = EntityTemplates.ExtendEntityToFood(
+				template: cactusFleshGrilled,
+				foodInfo: foodInfo);
 
-        public ComplexRecipe Recipe;
+			var input = new[] { new ComplexRecipe.RecipeElement(CactusFleshConfig.Id, 2f) };
+			var output = new[] { new ComplexRecipe.RecipeElement(Id, 1f) };
 
-        public GameObject CreatePrefab()
-        {
-            var looseEntity = EntityTemplates.CreateLooseEntity(
-                id: Id,
-                name: Name,
-                desc: Description,
-                mass: 1f,
-                unitMass: false,
-                anim: Assets.GetAnim("cactusfleshgrilled_kanim"),
-                initialAnim: "object",
-                sceneLayer: Grid.SceneLayer.Front,
-                collisionShape: EntityTemplates.CollisionShape.RECTANGLE,
-                width: 0.8f,
-                height: 0.4f,
-                isPickupable: true);
+			var recipeId = ComplexRecipeManager.MakeRecipeID(
+				fabricator: CookingStationConfig.ID,
+				inputs: input,
+				outputs: output);
 
-            var foodInfo = new EdiblesManager.FoodInfo(
-                id: Id,
-                caloriesPerUnit: 2800000f,
-                quality: TUNING.FOOD.FOOD_QUALITY_MEDIOCRE,
-                preserveTemperatue: 255.15f,
-                rotTemperature: 277.15f,
-                spoilTime: 2400f,
-                can_rot: true);
+			Recipe = new ComplexRecipe(recipeId, input, output) {
+				time = TUNING.FOOD.RECIPES.STANDARD_COOK_TIME,
+				description = RollerSnakeStrings.ITEMS.FOOD.CACTUSFLESHGRILLED.RECIPEDESC,
+				nameDisplay = ComplexRecipe.RecipeNameDisplay.Result,
+				fabricators = new List<Tag> { CookingStationConfig.ID },
+				sortOrder = 2,
+				requiredTech = null
+			};
 
-            var foodEntity = EntityTemplates.ExtendEntityToFood(
-                template: looseEntity,
-                foodInfo: foodInfo);
+			return foodEntity;
+		}
 
-            var input = new[] { new ComplexRecipe.RecipeElement(CactusFleshConfig.Id, 2f) };
-            var output = new[] { new ComplexRecipe.RecipeElement(Id, 1f) };
+		public string[] GetDlcIds() {
+			return DlcManager.AVAILABLE_ALL_VERSIONS;
+		}
 
-            var recipeId = ComplexRecipeManager.MakeRecipeID(
-                fabricator: CookingStationConfig.ID,
-                inputs: input,
-                outputs: output);
+		public void OnPrefabInit(GameObject inst) { }
 
-            Recipe = new ComplexRecipe(recipeId, input, output)
-            {
-                time = TUNING.FOOD.RECIPES.STANDARD_COOK_TIME,
-                description = RecipeDescription,
-                nameDisplay = ComplexRecipe.RecipeNameDisplay.Result,
-                fabricators = new List<Tag> { CookingStationConfig.ID },
-                sortOrder = 2,
-                requiredTech = null
-            };
+		public void OnSpawn(GameObject inst) { }
 
-            return foodEntity;
-        }
-
-        public void OnPrefabInit(GameObject inst) { }
-
-        public void OnSpawn(GameObject inst) { }
-
-    }
+	}
 }

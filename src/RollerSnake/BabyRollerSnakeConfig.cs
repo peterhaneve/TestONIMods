@@ -1,27 +1,26 @@
 ﻿using UnityEngine;
-using STRINGS;
 
-namespace RollerSnake
-{
-    public class BabyRollerSnakeConfig : IEntityConfig
-    {
-        public const string Id = "RollerSnakeBaby";
-        public static string Name = UI.FormatAsLink("Roller Snakelet", RollerSnakeConfig.Id.ToUpper());
-        public static string Description = $"The young of a {RollerSnakeConfig.Name}. Smaller and has trouble rolling up into an actual loop.";
+namespace RollerSnake {
+	public class BabyRollerSnakeConfig : IEntityConfig {
+		public const string Id = "RollerSnakeBaby";
 
-        public GameObject CreatePrefab()
-        {
-            GameObject rollerSnake = RollerSnakeConfig.CreateRollerSnake(Id, Name, Description, "babyrollersnake_kanim", true);
-            EntityTemplates.ExtendEntityToBeingABaby(rollerSnake, RollerSnakeConfig.Id, null);
-            return rollerSnake;
-        }
+		public GameObject CreatePrefab() {
+			var rollerSnake = RollerSnakeConfig.CreateRollerSnake(Id,
+				RollerSnakeStrings.CREATURES.SPECIES.ROLLERSNAKE.BABY.NAME,
+				RollerSnakeStrings.CREATURES.SPECIES.ROLLERSNAKE.BABY.DESC,
+				"babyrollersnake_kanim", true);
+			EntityTemplates.ExtendEntityToBeingABaby(rollerSnake, RollerSnakeConfig.Id);
+			return rollerSnake;
+		}
 
-        public void OnPrefabInit(GameObject inst)
-        {
-        }
+		public string[] GetDlcIds() {
+			return DlcManager.AVAILABLE_ALL_VERSIONS;
+		}
 
-        public void OnSpawn(GameObject inst)
-        {
-        }
-    }
+		public void OnPrefabInit(GameObject inst) {
+		}
+
+		public void OnSpawn(GameObject inst) {
+		}
+	}
 }

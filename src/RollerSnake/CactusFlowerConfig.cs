@@ -1,51 +1,50 @@
-﻿using STRINGS;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace CactusFruit
-{
-    public class CactusFlowerConfig : IEntityConfig
-    {
-        public const string Id = "CactusFlower";
+namespace RollerSnake {
+	public class CactusFlowerConfig : IEntityConfig {
+		public const string Id = "CactusFlower";
 
-        public static string Name = UI.FormatAsLink("Cactus Flower", Id.ToUpper());
+		public const float UnitsToSpawn = 1.0f;
+		
+		public GameObject CreatePrefab() {
+			var cactusFlower = EntityTemplates.CreateLooseEntity(
+				id: Id,
+				name: RollerSnakeStrings.ITEMS.FOOD.CACTUSFLOWER.NAME,
+				desc: RollerSnakeStrings.ITEMS.FOOD.CACTUSFLOWER.DESC,
+				mass: 1f,
+				unitMass: false,
+				anim: Assets.GetAnim("cactusflower_kanim"),
+				initialAnim: "object",
+				sceneLayer: Grid.SceneLayer.Front,
+				collisionShape: EntityTemplates.CollisionShape.RECTANGLE,
+				width: 0.6f,
+				height: 0.4f,
+				isPickupable: true);
 
-        public static string Description = $"The edible and sugary red flower of a {CactusFruitConfig.Name}.";
+			var foodInfo = new EdiblesManager.FoodInfo(
+				id: Id,
+				dlcId: DlcManager.VANILLA_ID,
+				caloriesPerUnit: 1200000f,
+				quality: TUNING.FOOD.FOOD_QUALITY_GOOD,
+				preserveTemperatue: 255.15f,
+				rotTemperature: 277.15f,
+				spoilTime: 3600f,
+				can_rot: true);
 
-        public GameObject CreatePrefab()
-        {
-            var looseEntity = EntityTemplates.CreateLooseEntity(
-                id: Id,
-                name: Name,
-                desc: Description,
-                mass: 1f,
-                unitMass: false,
-                anim: Assets.GetAnim("cactusflower_kanim"),
-                initialAnim: "object",
-                sceneLayer: Grid.SceneLayer.Front,
-                collisionShape: EntityTemplates.CollisionShape.RECTANGLE,
-                width: 0.6f,
-                height: 0.4f,
-                isPickupable: true);
+			var foodEntity = EntityTemplates.ExtendEntityToFood(
+				template: cactusFlower,
+				foodInfo: foodInfo);
 
-            var foodInfo = new EdiblesManager.FoodInfo(
-                id: Id,
-                caloriesPerUnit: 1200000f,
-                quality: TUNING.FOOD.FOOD_QUALITY_GOOD,
-                preserveTemperatue: 255.15f,
-                rotTemperature: 277.15f,
-                spoilTime: 3600f,
-                can_rot: true);
+			return foodEntity;
+		}
 
-            var foodEntity = EntityTemplates.ExtendEntityToFood(
-                template: looseEntity,
-                foodInfo: foodInfo);
+		public string[] GetDlcIds() {
+			return DlcManager.AVAILABLE_ALL_VERSIONS;
+		}
 
-            return foodEntity;
-        }
+		public void OnPrefabInit(GameObject inst) { }
 
-        public void OnPrefabInit(GameObject inst) { }
-
-        public void OnSpawn(GameObject inst) { }
-    }
+		public void OnSpawn(GameObject inst) { }
+	}
 
 }
