@@ -245,28 +245,5 @@ namespace RollerSnake {
 				};
 			}
 		}
-
-		/// <summary>
-		/// Applied to SettingsCache to only conditionally add Sun Bug to the list of
-		/// world-spawnable mobs, as it fails if put in the YAML with the DLC, or if another
-		/// sun bug mod like Solar System Worlds is installed...
-		/// </summary>
-		[HarmonyPatch(typeof(SettingsCache), nameof(SettingsCache.LoadFiles),
-			typeof(List<Klei.YamlIO.Error>))]
-		public static class SettingsCache_LoadFiles_Patch {
-			private const string ID = LightBugOrangeConfig.ID;
-
-			private const string REPLACE_ID = "TestDesert_" + ID;
-
-			/// <summary>
-			/// Applied after LoadFiles runs.
-			/// </summary>
-			[HarmonyPriority(Priority.Low)]
-			internal static void Postfix() {
-				var mobs = SettingsCache.mobs;
-				if (!mobs.HasMob(ID) && mobs.HasMob(REPLACE_ID))
-					mobs.MobLookupTable.Add(ID, mobs.GetMob(REPLACE_ID));
-			}
-		}
 	}
 }

@@ -1,0 +1,18 @@
+TerrainBiomeLookupTable:
+  # keys to remove from in-memory structure when this file is loaded
+  remove: [] 
+  # elements to add from in-memory structure when this file is loaded
+  add:
+    Ethanol:
+    - content: IronOre
+      bandSize: 0.05
+    - content: MaficRock
+      bandSize: 0.2
+    - content: Rust
+      bandSize: 0.15
+    - content: CarbonDioxide
+      bandSize: 0.2
+    - content: ChlorineGas
+      bandSize: 0.4
+    - content: Ethanol
+      bandSize: 0.2

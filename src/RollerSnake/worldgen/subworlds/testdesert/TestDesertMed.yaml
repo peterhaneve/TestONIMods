@@ -27,27 +27,6 @@ tags:
   - IgnoreCaveOverride
 subworldTemplateRules:
   - names:
-      - poi/oil/oilpockets_geyser_a
-      - poi/oil/oilpockets_geyser_b
-      - poi/oil/oilpockets_geyser_c
-    listRule: TryOne
-  - names:
-      - poi/oil/oilpockets_geyser_d
-      - poi/oil/oilpockets_geyser_e
-      - poi/oil/oilpockets_geyser_f
-    listRule: TryOne
-  - names:
-      - poi/oil/small_oilpockets_geyser_a
-      - poi/oil/small_oilpockets_geyser_b
-      - poi/oil/small_oilpockets_geyser_c
-      - poi/oil/small_oilpockets_geyser_d
-      - poi/oil/small_oilpockets_geyser_e
-      - poi/oil/small_oilpockets_geyser_f
-    listRule: TryOne
-  - names:
-      - poi/poi_testdesert_oasis_geyser
-    listRule: TryOne
-  - names:
       - poi/poi_testdesert_frag_reservoir
       - poi/poi_testdesert_snake_room
     listRule: TryOne

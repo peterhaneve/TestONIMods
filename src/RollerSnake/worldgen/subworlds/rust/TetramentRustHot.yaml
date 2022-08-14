@@ -1,0 +1,43 @@
+biomeNoise: noise/subworldRust
+temperatureRange: HumanWarm
+density:
+  min: 10
+  max: 15
+avoidRadius: 20.0
+minChildCount: 4
+extraBiomeChildren: 1
+sampleBehaviour: PoissonDisk
+biomes:
+  - name: biomes/Rust/Ethanol
+    weight: 2
+    tags:
+      - med_BeanPlantSeed
+      - med_SaltPlantSeed
+      - med_PuftBleachstone
+      - TestDesert_CrabWood
+  - name: biomes/Rust/Basic
+    weight: 1
+    tags:
+      - med_BeanPlantSeed
+      - med_SaltPlantSeed
+      - med_PuftBleachstone
+features:
+  - type: features/rust/BigRock
+  - type: features/rust/MiniBleachBall
+  - type: features/rust/SaltDeposit
+tags:
+  - IgnoreCaveOverride
+zoneType: Rust
+subworldTemplateRules:
+  - names:
+      - poi/poi_broken_farm
+      - poi/poi_old_pool
+    listRule: TryOne
+  - names:
+      - poi/poi_dupe_sensor_puzzle
+    listRule: TryOne
+  - names:
+      - poi/poi_salt_spiral
+      - poi/poi_salt_spiral_2
+      - poi/poi_salt_spiral_3
+    listRule: TryOne

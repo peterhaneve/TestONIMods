@@ -198,6 +198,11 @@ namespace RollerSnake {
 				public static LocString NAME = "Tetrament";
 				public static LocString DESCRIPTION = "A location with moderately hot temperatures, Tetrament is home to large expanses of hot, dry desert in addition to its lush forests, swamps, and jungles.\n\n<smallcaps>Tetrament is an ideal location for Duplicant life. Its environment is quite different from other locations but is not any more challenging.</smallcaps>\n\n";
 			}
+
+			public static class TETRAMENT_WARP {
+				public static LocString NAME = "Dry Radioactive Forest Asteroid";
+				public static LocString DESCRIPTION = "A large-ish forested asteroid with a frozen radioactive core.\n\n<smallcaps>While Dry Radioactive Forest Asteroids are largely foresty, they also contain a great deal of rust and salt.</smallcaps>";
+			}
 		}
 	}
 }

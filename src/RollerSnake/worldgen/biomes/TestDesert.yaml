@@ -18,6 +18,27 @@ TerrainBiomeLookupTable:
       bandSize: 0.8
     - content: Fossil
       bandSize: 0.2
+    Metal:
+    - content: Oxygen
+      bandSize: 1
+    - content: CarbonDioxide
+      bandSize: 0.2
+    - content: Carbon
+      bandSize: 0.6
+    - content: Sand
+      bandSize: 0.4
+    - content: IgneousRock
+      bandSize: 0.6
+      overrides:
+        massMultiplier: 4
+    - content: Sandstone
+      bandSize: 1
+      overrides:
+        massMultiplier: 2
+    - content: IronOre
+      bandSize: 0.6
+    - content: Dirt
+      bandSize: 0.2
     Rich:
     - content: Oxygen
       bandSize: 1
@@ -29,3 +50,63 @@ TerrainBiomeLookupTable:
       bandSize: 1.4
     - content: Fossil
       bandSize: 0.6
+    Lime:
+    - content: Oxygen
+      bandSize: 1.4
+    - content: Sand
+      bandSize: 1.2
+    - content: Sandstone
+      bandSize: 1.6
+    - content: IgneousRock
+      bandSize: 0.4
+    - content: Fossil
+      bandSize: 0.6
+    Start:
+    - content: Oxygen
+      bandSize: 1.4
+    - content: CarbonDioxide
+      bandSize: 0.2
+    - content: Sand
+      bandSize: 0.4
+    - content: Sandstone
+      bandSize: 1.0
+      overrides:
+        massMultiplier: 2
+    - content: IronOre
+      bandSize: 0.8
+    - content: Dirt
+      bandSize: 0.4
+    Oxy:
+    - content: Oxygen
+      bandSize: 1.4
+    - content: Sand
+      bandSize: 1.2
+    - content: Sandstone
+      bandSize: 1.2
+      overrides:
+        massMultiplier: 2
+    - content: IgneousRock
+      bandSize: 0.6
+      overrides:
+        massMultiplier: 4
+    - content: OxyRock
+      bandSize: 0.03
+    - content: Dirt
+      bandSize: 0.2
+    Algae:
+    - content: Oxygen
+      bandSize: 1
+    - content: Sand
+      bandSize: 1.2
+    - content: Sandstone
+      bandSize: 1.2
+      overrides:
+        massMultiplier: 2
+    - content: IgneousRock
+      bandSize: 0.6
+      overrides:
+        massMultiplier: 4
+    - content: Algae
+      bandSize: 0.6
+    - content: Dirt
+      bandSize: 0.2

@@ -1,0 +1,236 @@
+name: STRINGS.WORLDS.TETRAMENT.NAME
+description: STRINGS.WORLDS.TETRAMENT.DESCRIPTION
+asteroidIcon: asteroid_testdesert_kanim
+nameTables: [ TERRA ]
+# This asteroid is the DLC-specific Classic Tetrament starting planetoid
+
+worldTraitScale: 0.9
+worldsize:
+  X: 240
+  Y: 380
+layoutMethod: PowerTree
+
+defaultsOverrides:
+  startingWorldElements: []
+
+# List all the zone files to load
+subworldFiles:
+  - name: subworlds/forest/ForestStart
+  - name: subworlds/forest/ForestMiniWater
+    weight: 0.5
+    minCount: 1
+    maxCount: 4
+  - name: subworlds/forest/ForestMiniOxy
+    minCount: 1
+  - name: subworlds/forest/ForestMiniMetal
+    minCount: 1
+  - name: subworlds/marsh/HotMarsh
+    minCount: 4
+  - name: subworlds/jungle/Jungle
+    minCount: 3
+  - name: subworlds/magma/Bottom
+  - name: subworlds/frozen/Frozen
+    minCount: 3
+  - name: expansion1::subworlds/space/SpaceWithNoBorder
+  - name: expansion1::subworlds/space/HospitableClassicSurface
+  - name: subworlds/ocean/Ocean
+    minCount: 3
+  - name: subworlds/testdesert/TestDesert
+    minCount: 4
+  - name: expansion1::subworlds/radioactive/UraniumSprinkles
+    minCount: 2
+    maxCount: 2
+
+startSubworldName: subworlds/forest/ForestStart
+startingBaseTemplate: bases/forestBase
+startingBasePositionHorizontal:
+  min: 0.5
+  max: 0.5
+startingBasePositionVertical:
+  min: 0.42
+  max: 0.42
+
+worldTraitRules:
+  - min: 2
+    max: 4
+    forbiddenTags:
+      - Surface
+      - NonStartWorld
+
+fixedTraits:
+  - sunlightMed
+  - cosmicRadiationVeryLow
+
+unknownCellsAllowedSubworlds:
+  - tagcommand: Default
+    command: Replace
+    subworldNames:
+      - subworlds/forest/ForestStart
+  - tagcommand: DistanceFromTag
+    tag: AtStart
+    minDistance: 1
+    maxDistance: 1
+    command: Replace
+    subworldNames:
+      - subworlds/forest/ForestMiniOxy
+      - subworlds/forest/ForestMiniWater
+      - subworlds/forest/ForestMiniMetal
+  - tagcommand: DistanceFromTag
+    tag: AtStart
+    minDistance: 2
+    maxDistance: 3
+    command: Replace
+    subworldNames:
+      - subworlds/jungle/Jungle
+      - subworlds/testdesert/TestDesert
+  - tagcommand: DistanceFromTag
+    tag: AtStart
+    minDistance: 4
+    maxDistance: 4
+    command: Replace
+    subworldNames:
+      - subworlds/ocean/Ocean
+      - subworlds/marsh/HotMarsh
+  - tagcommand: DistanceFromTag
+    tag: AtStart
+    minDistance: 5
+    maxDistance: 999
+    command: Replace
+    subworldNames:
+      - subworlds/ocean/Ocean
+      - subworlds/marsh/HotMarsh
+      - expansion1::subworlds/radioactive/UraniumSprinkles
+  - tagcommand: AtTag
+    tag: AtDepths
+    command: Replace
+    subworldNames:
+      - subworlds/magma/Bottom
+  - tagcommand: DistanceFromTag
+    tag: AtSurface
+    minDistance: 0
+    maxDistance: 1
+    command: Replace
+    subworldNames:
+      - expansion1::subworlds/space/SpaceWithNoBorder
+  - tagcommand: DistanceFromTag
+    tag: AtSurface
+    minDistance: 2
+    maxDistance: 2
+    command: Replace
+    subworldNames:
+      - expansion1::subworlds/space/HospitableClassicSurface
+  - tagcommand: DistanceFromTag
+    tag: AtSurface
+    minDistance: 3
+    maxDistance: 3
+    command: Replace
+    subworldNames:
+      - subworlds/frozen/Frozen
+
+worldTemplateRules:
+  # Jungle
+  - names:
+      - poi/jungle/geyser_steam
+    listRule: TryOne
+    priority: 100
+    allowedCellsFilter:
+      - command: Replace
+        zoneTypes: [ToxicJungle]
+  - names:
+      - poi/jungle/geyser_methane
+      - poi/jungle/geyser_chlorine
+    listRule: TryOne
+    priority: 100
+    allowedCellsFilter:
+      - command: Replace
+        zoneTypes: [ToxicJungle]
+  # Frozen
+  - names:
+      - poi/frozen/heatsink_a
+      - poi/frozen/heatsink_b
+      - poi/frozen/heatsink_c
+      - poi/frozen/heatsink_d
+    listRule: TrySome
+    someCount: 3
+    priority: 100 
+    allowedCellsFilter:
+      - command: Replace
+        zoneTypes: [FrozenWastes]
+  # Ocean
+  - names:
+      - poi/poi_ocean_geyser_saltwater
+    listRule: TryOne
+    priority: 100 
+    allowedCellsFilter:
+      - command: Replace
+        zoneTypes: [Ocean]
+  # Gravitas
+  - names:
+    - expansion1::poi/warp/sender
+    - expansion1::poi/warp/receiver
+    - expansion1::poi/warp/teleporter_no_oil
+    listRule: GuaranteeAll
+    priority: 90
+    allowedCellsFilter:
+      - command: Replace
+        tagcommand: DistanceFromTag
+        tag: AtStart
+        minDistance: 3
+        maxDistance: 4
+      - command: ExceptWith
+        tagcommand: DistanceFromTag
+        tag: AtSurface
+        minDistance: 0
+        maxDistance: 2
+      - command: ExceptWith
+        zoneTypes: [ Space, MagmaCore, OilField ]
+      - command: ExceptWith
+        tagcommand: AtTag
+        tag: NoGravitasFeatures
+  - names:
+      - expansion1::poi/genericGravitas/poi_office
+    listRule: GuaranteeAll
+    priority: 90
+    allowedCellsFilter:
+      - command: Replace
+        tagcommand: DistanceFromTag
+        tag: AtStart
+        minDistance: 2
+        maxDistance: 99
+      - command: ExceptWith
+        tagcommand: AtTag
+        tag: NoGravitasFeatures
+      - command: ExceptWith
+        tagcommand: DistanceFromTag
+        tag: AtDepths
+        minDistance: 0
+        maxDistance: 2
+      - command: ExceptWith
+        tagcommand: DistanceFromTag
+        tag: AtSurface
+        minDistance: 0
+        maxDistance: 2
+  # Generic Geysers
+  - names:
+    - geysers/generic
+    listRule: TryOne
+    times: 12
+    ruleId: GenericGeysers
+    allowDuplicates: true
+    allowedCellsFilter:
+      - command: Replace
+        tagcommand: NotAtTag
+        tag: NoGlobalFeatureSpawning
+  # Uranium Geode
+  - names:
+    - expansion1::poi/radioactive/uranium_geode1
+    listRule: GuaranteeOne
+    useRelaxedFiltering: true
+    allowExtremeTemperatureOverlap: true # has Abyssalite border
+    priority: 200
+    allowedCellsFilter:
+      - command: Replace
+        tagcommand: DistanceFromTag
+        tag: AtStart
+        minDistance: 1
+        maxDistance: 1

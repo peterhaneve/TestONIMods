@@ -1,0 +1,34 @@
+biomeNoise: noise/subworldTestDesert
+temperatureRange: HumanHot
+density:
+  min: 20
+  max: 25
+avoidRadius: 20.0
+minChildCount: 6
+doAvoidPoints: false
+dontRelaxChildren: true
+sampleBehaviour: PoissonDisk
+borderOverride: rocky
+features:
+  - type: features/testdesert/SmallLake
+  - type: features/testdesert/SmallLake
+  - type: expansion1::features/wasteland/OxyliteBlob
+biomes:
+  - name: biomes/TestDesert/Start
+    tags:
+      - CactusFruit
+      - AquaBulb
+      - RollerSnake
+      - CactusFruitSeed
+      - TestDesert_LightBugOrange
+      - BasicForagePlant
+      - BasicForagePlantPlanted
+      - Cylindrica
+tags:
+  - IgnoreCaveOverride
+  - NoGlobalFeatureSpawning
+  - StartWorld
+  - SwapLakesToBelow
+centralFeature:
+  type: features/generic/StartLocation
+zoneType: Sandstone

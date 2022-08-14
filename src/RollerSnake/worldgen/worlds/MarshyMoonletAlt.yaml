@@ -1,0 +1,138 @@
+name: STRINGS.WORLDS.MARSHYMOONLET.NAME
+description: STRINGS.WORLDS.MARSHYMOONLET.DESCRIPTION
+nameTables: [ SWAMP ]
+asteroidIcon: asteroid_marshy_moonlet_kanim
+
+worldTraitScale: 0.08
+worldsize:
+  X: 64
+  Y: 96
+layoutMethod: PowerTree
+
+defaultsOverrides:
+  data:
+    DrawWorldBorderForce: false
+    DrawWorldBorder: true
+    WorldBorderThickness: 2
+    WorldBorderRange: 1
+    OverworldDensityMin: 15
+    OverworldDensityMax: 15
+    OverworldAvoidRadius: 5
+    OverworldSampleBehaviour: PoissonDisk
+    POIPadding: 1
+
+startSubworldName: subworlds/marsh/TetramentMarshStart
+startingBaseTemplate: expansion1::poi/sap_tree_room
+startingBasePositionHorizontal:
+  min: 0.45
+  max: 0.55
+startingBasePositionVertical:
+  min: 0.50
+  max: 0.55
+
+worldTraitRules:
+  - min: 0
+    max: 1
+    forbiddenTags:
+      - StartWorldOnly
+      - Geodes
+      - LargeWorld
+      - Oil
+      - Core
+      - GenericGeysers
+      - StartChange
+    # Exclude redundant or too-big traits
+    forbiddenTraits:
+      - traits/MagmaVents
+      - expansion1::traits/Volcanoes
+      - traits/SlimeSplats
+      - expansion1::traits/LushCore
+
+fixedTraits:
+  - sunlightMedHigh
+  - cosmicRadiationMedLow
+
+subworldFiles:
+  - name: subworlds/space/Space
+  - name: expansion1::subworlds/space/SpaceWithOrganicBorder
+  - name: subworlds/marsh/TetramentMarshStart
+  - name: subworlds/marsh/TetramentMarshInactive
+    minCount: 2
+  - name: expansion1::subworlds/jungle/med_JungleInactive
+    minCount: 2
+  - name: expansion1::subworlds/magma/BottomSmall
+
+unknownCellsAllowedSubworlds:
+  - tagcommand: Default
+    command: Replace
+    subworldNames:
+      - subworlds/marsh/TetramentMarshInactive
+      - expansion1::subworlds/jungle/med_JungleInactive
+  - tagcommand: AtTag
+    tag: AtSurface
+    command: Replace
+    subworldNames:
+      - subworlds/space/Space
+  - tagcommand: DistanceFromTag
+    tag: AtSurface
+    minDistance: 1
+    maxDistance: 1
+    command: Replace
+    subworldNames:
+      - expansion1::subworlds/space/SpaceWithOrganicBorder
+  - tagcommand: DistanceFromTag
+    tag: AtDepths
+    minDistance: 0
+    maxDistance: 0
+    command: Replace
+    subworldNames:
+      - expansion1::subworlds/magma/BottomSmall
+
+worldTemplateRules:
+  - names:
+    - expansion1::geysers/molten_tungsten_compact
+    listRule: GuaranteeAll
+    times: 1
+    priority: 150
+    useRelaxedFiltering: true
+    allowedCellsFilter:
+      - command: Replace
+        tagcommand: DistanceFromTag
+        tag: AtDepths
+        minDistance: 1
+        maxDistance: 2
+      - command: ExceptWith
+        zoneTypes: [ Space ]
+  - names:
+    - expansion1::geysers/molten_tungsten_exposed_compact
+    listRule: GuaranteeSomeTryMore
+    someCount: 1
+    moreCount: 1
+    priority: 140
+    allowedCellsFilter:
+      - command: Replace
+        tagcommand: DistanceFromTag
+        tag: AtDepths
+        minDistance: 0
+        maxDistance: 0
+  - names:
+    - geysers/hot_steam
+    listRule: GuaranteeOne
+    priority: 130
+    useRelaxedFiltering: true
+    allowedCellsFilter:
+      - command: Replace
+        tagcommand: DistanceFromTag
+        tag: AtStart
+        minDistance: 1
+        maxDistance: 99
+      - command: ExceptWith
+        zoneTypes: [ Space ]
+      - command: ExceptWith
+        tagcommand: AtTag
+        tag: NoGravitasFeatures
+      - command: ExceptWith
+        tagcommand: DistanceFromTag
+        tag: AtDepths
+        minDistance: 0
+        maxDistance: 0

@@ -1,0 +1,31 @@
+biomeNoise: noise/subworldTestDesert
+temperatureRange: HumanHot
+density:
+  min: 10
+  max: 15
+avoidRadius: 5
+minChildCount: 4
+sampleBehaviour: PoissonDisk
+borderOverride: rocky
+features:
+  - type: expansion1::features/wasteland/OxyliteBlob
+biomes:
+  - name: biomes/TestDesert/Metal
+    tags:
+      - CactusFruit
+      - AquaBulb
+      - RollerSnake
+      - CactusFruitSeed
+      - TestDesert_LightBugOrange
+      - BasicForagePlant
+      - BasicForagePlantPlanted
+      - Cylindrica
+tags:
+  - IgnoreCaveOverride
+  - StartWorld
+  - NoGlobalFeatureSpawning
+subworldTemplateRules:
+  - names:
+      - poi/poi_testdesert_fossil_spiral
+    listRule: TryOne
+zoneType: Sandstone
