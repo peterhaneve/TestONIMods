@@ -114,10 +114,6 @@ worldTemplateRules:
     allowedCellsFilter:
       - command: Replace
         zoneTypes: [Radioactive]
-      - command: IntersectWith
-        subworldNames:
-          - expansion1::subworlds/radioactive/med_UraniumFields
-          - expansion1::subworlds/radioactive/med_FrozenUraniumFields
    # Again, we need to give the user some hope
   - names:
     - expansion1::geysers/slush_salt_water

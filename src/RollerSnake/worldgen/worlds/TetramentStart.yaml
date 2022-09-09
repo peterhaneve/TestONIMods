@@ -201,6 +201,24 @@ worldTemplateRules:
       - command: ExceptWith
         tagcommand: AtTag
         tag: NoGlobalFeatureSpawning
+  # Oil Well feature in the badlands layer
+  - names:
+      - poi/poi_testdesert_badlands_reservoir
+    listRule: GuaranteeOne
+    priority: 40
+    allowedCellsFilter:
+      - command: Replace
+        subworldNames:
+          - expansion1::subworlds/barren/CoalyGranite
+  # Oil Well feature in a wasteland biome
+  - names:
+      - poi/poi_testdesert_wasteland_reservoir
+    listRule: GuaranteeOne
+    priority: 40
+    allowedCellsFilter:
+      - command: Replace
+        subworldNames:
+          - expansion1::subworlds/wasteland/WastelandBeetle
   # Gravitas
   - names:
     - expansion1::poi/warp/sender
