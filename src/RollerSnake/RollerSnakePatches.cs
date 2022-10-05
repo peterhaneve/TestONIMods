@@ -13,6 +13,9 @@ namespace RollerSnake {
 		internal delegate System.Action CreateDietaryModifier(string id, Tag eggTag,
 			TagBits foodTags, float modifierPerCal);
 
+		internal delegate System.Action CreateDietaryModifierNew(string id, Tag eggTag,
+			HashSet<Tag> foodTags, float modifierPerCal);
+
 		internal delegate void GenerateCreatureDescriptionContainers(GameObject creature,
 			List<ContentContainer> containers);
 
@@ -23,6 +26,11 @@ namespace RollerSnake {
 			typeof(TUNING.CREATURES.EGG_CHANCE_MODIFIERS).
 			CreateStaticDelegate<CreateDietaryModifier>(nameof(CreateDietaryModifier),
 			typeof(string), typeof(Tag), typeof(TagBits), typeof(float));
+
+		internal static readonly CreateDietaryModifierNew CREATE_DIETARY_MODIFIER_NEW =
+			typeof(TUNING.CREATURES.EGG_CHANCE_MODIFIERS).
+			CreateStaticDelegate<CreateDietaryModifierNew>(nameof(CreateDietaryModifier),
+			typeof(string), typeof(Tag), typeof(HashSet<Tag>), typeof(float));
 
 		internal static readonly GenerateCreatureDescriptionContainers GENERATE_DESC =
 			typeof(CodexEntryGenerator).CreateStaticDelegate<GenerateCreatureDescriptionContainers>(
@@ -155,12 +163,20 @@ namespace RollerSnake {
 
 		public override void OnAllModsLoaded(Harmony harmony, IReadOnlyList<Mod> mods) {
 			// Improve Not Enough Tags compatibility
-			var eggBits = new TagBits();
-			eggBits.SetTag(SimHashes.Obsidian.CreateTag());
-			TUNING.CREATURES.EGG_CHANCE_MODIFIERS.MODIFIER_CREATORS.Add(
-				CREATE_DIETARY_MODIFIER.Invoke(SteelRollerSnakeConfig.Id,
-				SteelRollerSnakeConfig.EggId.ToTag(), eggBits, 0.05f / RollerSnakeTuning.
-				STANDARD_CALORIES_PER_CYCLE));
+			System.Action modifier = null;
+			var obsTag = SimHashes.Obsidian.CreateTag();
+			var prefabTag = SteelRollerSnakeConfig.EggId.ToTag();
+			float rate = 0.05f / RollerSnakeTuning.STANDARD_CALORIES_PER_CYCLE;
+			if (CREATE_DIETARY_MODIFIER_NEW != null)
+				modifier = CREATE_DIETARY_MODIFIER_NEW.Invoke(SteelRollerSnakeConfig.Id,
+					prefabTag, new HashSet<Tag>() { obsTag }, rate);
+			else if (CREATE_DIETARY_MODIFIER != null) {
+				var eggBits = new TagBits();
+				eggBits.SetTag(obsTag);
+				modifier = CREATE_DIETARY_MODIFIER.Invoke(SteelRollerSnakeConfig.Id, prefabTag,
+					eggBits, rate);
+			}
+			TUNING.CREATURES.EGG_CHANCE_MODIFIERS.MODIFIER_CREATORS.Add(modifier);
 		}
 
 		[HarmonyPatch(typeof(CodexEntryGenerator), "GenerateCreatureEntries")]
