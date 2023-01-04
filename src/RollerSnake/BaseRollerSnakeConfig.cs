@@ -58,7 +58,7 @@ namespace RollerSnake {
 				.Add(new AttackStates.Def(), condition).PushInterruptGroup()
 				.Add(new CreatureSleepStates.Def())
 				.Add(new FixedCaptureStates.Def())
-				.Add(new RanchedStates.Def())
+				.Add(new RanchedStates.Def(), !is_baby)
 				.Add(new LayEggStates.Def())
 				.Add(new EatStates.Def())
 				.Add(new PlayAnimsStates.Def(GameTags.Creatures.Poop, false, "poop", STRINGS.CREATURES.STATUSITEMS.EXPELLING_SOLID.NAME, STRINGS.CREATURES.STATUSITEMS.EXPELLING_SOLID.TOOLTIP))
