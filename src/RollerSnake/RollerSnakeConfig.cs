@@ -52,6 +52,7 @@ namespace RollerSnake {
 			scaleMonitor.itemDroppedOnShear = EmitElement;
 			scaleMonitor.levelCount = 2;
 			scaleMonitor.targetAtmosphere = SimHashes.Oxygen;
+			wildCreature.AddTag(GameTags.OriginalCreature);
 
 			return wildCreature;
 		}

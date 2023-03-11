@@ -20,7 +20,7 @@ defaultsOverrides:
 subworldFiles:
   - name: subworlds/space/Space
   - name: subworlds/magma/Bottom
-  - name: subworlds/jungle/Jungle
+  - name: subworlds/jungle/JungleNoDrecko
     minCount: 3
   - name: subworlds/testdesert/TestDesertStart
     overridePower: 4
@@ -82,7 +82,7 @@ unknownCellsAllowedSubworlds:
     maxDistance: 99
     command: Replace
     subworldNames:
-      - subworlds/jungle/Jungle
+      - subworlds/jungle/JungleNoDrecko
       - subworlds/testdesert/TestDesertMed
   - tagcommand: DistanceFromTag
     tag: AtStart
@@ -147,7 +147,7 @@ worldTemplateRules:
     allowedCellsFilter:
       - command: Replace
         subworldNames:
-          - subworlds/jungle/Jungle
+          - subworlds/jungle/JungleNoDrecko
   # 1x natural gas vent
   - names:
       - poi/jungle/geyser_methane
@@ -156,7 +156,7 @@ worldTemplateRules:
     allowedCellsFilter:
       - command: Replace
         subworldNames:
-          - subworlds/jungle/Jungle
+          - subworlds/jungle/JungleNoDrecko
   # 1x liquid sulfur geyser
   - names:
       - expansion1::geysers/liquid_sulfur

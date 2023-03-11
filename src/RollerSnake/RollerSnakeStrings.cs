@@ -56,6 +56,18 @@ namespace RollerSnake {
 					public static LocString CONTAINER2 = "Roller Snakes are known to be quite kind to their caretakers and do not bite or otherwise retaliate in response to grooming or shearing.";
 				}
 			}
+
+			public static class STORY_TRAITS {
+				public static class CRITTER_MANIPULATOR {
+					public static class SPECIES_ENTRIES {
+						public static LocString SNAKE = "There's a snake in my boot! Review data for more information.";
+					}
+
+					public static class SPECIES_ENTRIES_EXPANDED {
+						public static LocString ROLLERSNAKESPECIES = "When this creature tried to roll out of the building, the scanner nearly became caught in an infinite loop.";
+					}
+				}
+			}
 		}
 
 		public static class CREATURES {

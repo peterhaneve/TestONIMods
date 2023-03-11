@@ -1,11 +1,10 @@
-﻿using System.Collections.Generic;
-using HarmonyLib;
+﻿using HarmonyLib;
 using KMod;
 using PeterHan.PLib.Core;
 using PeterHan.PLib.Database;
 using PeterHan.PLib.PatchManager;
 using PeterHan.PLib.UI;
-using ProcGen;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace RollerSnake {
@@ -45,6 +44,20 @@ namespace RollerSnake {
 		private const string TETRAMENT_ICON = "Asteroid_desert_oasis";
 
 		private const string TEST_DESERT_BIOME_ICON = "biomeIconTestdesert";
+
+		private static void AddCritterFluxOMatic(IList<CodexEntry> entries,
+				ContentContainer critterContent) {
+			int n = entries.Count;
+			for (int i = 0; i < n; i++) {
+				var entry = entries[i];
+				int contentCount = entry.contentContainers.Count;
+				if (CodexCache.FormatLinkID(entry.id) == GravitasCreatureManipulatorConfig.
+						CODEX_ENTRY_ID && contentCount > 0) {
+					entry.InsertContentContainer(contentCount - 1, critterContent);
+					break;
+				}
+			}
+		}
 
 		private static void AddFlowerInfoDescriptors(ICollection<Descriptor> descriptors) {
 			var flowerTag = CactusFlowerConfig.Id.ToTag();
@@ -179,6 +192,25 @@ namespace RollerSnake {
 			TUNING.CREATURES.EGG_CHANCE_MODIFIERS.MODIFIER_CREATORS.Add(modifier);
 		}
 
+		[HarmonyPatch(typeof(CodexCache), "CollectEntries")]
+		public static class CodexCache_CollectEntries_Patch {
+			internal static void Postfix(string folder, IList<CodexEntry> __result) {
+				// Until we get PLib 4.13 with story trait codex entries
+				if (folder.ToUpper() == "STORYTRAITS") {
+					var cc = new ContentContainer(new List<ICodexWidget> {
+						new CodexText(Strings.Get("STRINGS.CREATURES.FAMILY_PLURAL.ROLLERSNAKESPECIES"),
+							CodexTextStyle.Subtitle),
+						new CodexText(Strings.Get(
+							"STRINGS.CODEX.STORY_TRAITS.CRITTER_MANIPULATOR.SPECIES_ENTRIES_EXPANDED.ROLLERSNAKESPECIES")),
+						new CodexText(Strings.Get("STRINGS.CODEX.MYLOG.DIVIDER"))
+					}, ContentContainer.ContentLayout.Vertical) {
+						lockID = "story_trait_critter_manipulator_rollersnakespecies"
+					};
+					AddCritterFluxOMatic(__result, cc);
+				}
+			}
+		}
+
 		[HarmonyPatch(typeof(CodexEntryGenerator), "GenerateCreatureEntries")]
 		public class CodexEntryGenerator_GenerateCreatureEntries_Patch {
 			public static void Postfix(Dictionary<string, CodexEntry> __result) {
@@ -215,7 +247,41 @@ namespace RollerSnake {
 					SpawnCactusFlower(__instance);
 			}
 		}
-		
+
+		/// <summary>
+		/// Applied to GravitasCreatureManipulatorConfig to use the correct description for
+		/// Roller Snakes when mutated.
+		/// </summary>
+		[HarmonyPatch(typeof(GravitasCreatureManipulatorConfig), nameof(
+			GravitasCreatureManipulatorConfig.GetDescriptionForSpeciesTag))]
+		public static class GravitasCreatureManipulatorConfig_GetDescriptionForSpeciesTag_Patch {
+			/// <summary>
+			/// Applied after GetDescriptionForSpeciesTag runs.
+			/// </summary>
+			internal static void Postfix(Tag species, ref Option<string> __result) {
+				if (species.Name == BaseRollerSnakeConfig.SpeciesId)
+					__result = Option.Some<string>(RollerSnakeStrings.CODEX.STORY_TRAITS.
+						CRITTER_MANIPULATOR.SPECIES_ENTRIES.SNAKE);
+			}
+		}
+
+		/// <summary>
+		/// Applied to GravitasCreatureManipulatorConfig to use the correct name for Roller
+		/// Snakes when mutated.
+		/// </summary>
+		[HarmonyPatch(typeof(GravitasCreatureManipulatorConfig), nameof(
+			GravitasCreatureManipulatorConfig.GetNameForSpeciesTag))]
+		public static class GravitasCreatureManipulatorConfig_GetNameForSpeciesTag_Patch {
+			/// <summary>
+			/// Applied after GetNameForSpeciesTag runs.
+			/// </summary>
+			internal static void Postfix(Tag species, ref Option<string> __result) {
+				if (species.Name == BaseRollerSnakeConfig.SpeciesId)
+					__result = Option.Some<string>(RollerSnakeStrings.CREATURES.FAMILY_PLURAL.
+						ROLLERSNAKESPECIES);
+			}
+		}
+
 		[HarmonyPatch(typeof(Immigration), "ConfigureCarePackages")]
 		public static class Immigration_ConfigureCarePackages_Patch {
 			public static void Postfix(ref CarePackageInfo[] ___carePackages) {
