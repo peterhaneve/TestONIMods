@@ -5,14 +5,13 @@ using PeterHan.PLib.Database;
 using PeterHan.PLib.PatchManager;
 using PeterHan.PLib.UI;
 using System.Collections.Generic;
+using System.Reflection;
+using System.Reflection.Emit;
 using UnityEngine;
 
 namespace RollerSnake {
 	public sealed class RollerSnakePatches : UserMod2 {
 		internal delegate System.Action CreateDietaryModifier(string id, Tag eggTag,
-			TagBits foodTags, float modifierPerCal);
-
-		internal delegate System.Action CreateDietaryModifierNew(string id, Tag eggTag,
 			HashSet<Tag> foodTags, float modifierPerCal);
 
 		internal delegate void GenerateCreatureDescriptionContainers(GameObject creature,
@@ -24,11 +23,6 @@ namespace RollerSnake {
 		internal static readonly CreateDietaryModifier CREATE_DIETARY_MODIFIER =
 			typeof(TUNING.CREATURES.EGG_CHANCE_MODIFIERS).
 			CreateStaticDelegate<CreateDietaryModifier>(nameof(CreateDietaryModifier),
-			typeof(string), typeof(Tag), typeof(TagBits), typeof(float));
-
-		internal static readonly CreateDietaryModifierNew CREATE_DIETARY_MODIFIER_NEW =
-			typeof(TUNING.CREATURES.EGG_CHANCE_MODIFIERS).
-			CreateStaticDelegate<CreateDietaryModifierNew>(nameof(CreateDietaryModifier),
 			typeof(string), typeof(Tag), typeof(HashSet<Tag>), typeof(float));
 
 		internal static readonly GenerateCreatureDescriptionContainers GENERATE_DESC =
@@ -176,19 +170,11 @@ namespace RollerSnake {
 
 		public override void OnAllModsLoaded(Harmony harmony, IReadOnlyList<Mod> mods) {
 			// Improve Not Enough Tags compatibility
-			System.Action modifier = null;
 			var obsTag = SimHashes.Obsidian.CreateTag();
 			var prefabTag = SteelRollerSnakeConfig.EggId.ToTag();
 			float rate = 0.05f / RollerSnakeTuning.STANDARD_CALORIES_PER_CYCLE;
-			if (CREATE_DIETARY_MODIFIER_NEW != null)
-				modifier = CREATE_DIETARY_MODIFIER_NEW.Invoke(SteelRollerSnakeConfig.Id,
-					prefabTag, new HashSet<Tag>() { obsTag }, rate);
-			else if (CREATE_DIETARY_MODIFIER != null) {
-				var eggBits = new TagBits();
-				eggBits.SetTag(obsTag);
-				modifier = CREATE_DIETARY_MODIFIER.Invoke(SteelRollerSnakeConfig.Id, prefabTag,
-					eggBits, rate);
-			}
+			var modifier = CREATE_DIETARY_MODIFIER?.Invoke(SteelRollerSnakeConfig.Id,
+				prefabTag, new HashSet<Tag>() { obsTag }, rate);
 			TUNING.CREATURES.EGG_CHANCE_MODIFIERS.MODIFIER_CREATORS.Add(modifier);
 		}
 
@@ -211,8 +197,19 @@ namespace RollerSnake {
 			}
 		}
 
-		[HarmonyPatch(typeof(CodexEntryGenerator), "GenerateCreatureEntries")]
+		[HarmonyPatch]
 		public class CodexEntryGenerator_GenerateCreatureEntries_Patch {
+			internal static MethodBase TargetMethod() {
+				// TODO Remove when versions prior to U49-574642 no longer need to be supported
+				var method = typeof(CodexEntryGenerator).GetMethodSafe(
+					"GenerateCreatureEntries", true, PPatchTools.AnyArguments);
+				if (method == null) {
+					method = PPatchTools.GetTypeSafe("CodexEntryGenerator_Creatures")?.
+						GetMethodSafe("GenerateEntries", true, PPatchTools.AnyArguments);
+				}
+				return method;
+			}
+
 			public static void Postfix(Dictionary<string, CodexEntry> __result) {
 				AddToCodex(BaseRollerSnakeConfig.SpeciesId, RollerSnakeStrings.CREATURES.
 					FAMILY_PLURAL.ROLLERSNAKESPECIES, __result);
@@ -245,6 +242,24 @@ namespace RollerSnake {
 			public static void Postfix(Tag cropID, Crop __instance) {
 				if (cropID == CactusFleshConfig.Id.ToTag())
 					SpawnCactusFlower(__instance);
+			}
+		}
+
+		/// <summary>
+		/// Applied to EntityConfigManager to fix a bug where the baby roller snake would
+		/// sometimes be loaded before the real one, depending on what other mods might be
+		/// installed or the game version. EntityConfigOrder is private and cannot be used by
+		/// mods, so is EntityConfigManager.ConfigEntry
+		/// </summary>
+		[HarmonyPatch(typeof(EntityConfigManager), "GetSortOrder")]
+		public static class EntityConfigManager_GetSortOrder_Patch {
+			/// <summary>
+			/// Applied after GetSortOrder runs.
+			/// </summary>
+			internal static void Postfix(System.Type type, ref int __result) {
+				if (type == typeof(BabyRollerSnakeConfig) || type == typeof(
+						BabySteelRollerSnakeConfig))
+					__result = 1;
 			}
 		}
 

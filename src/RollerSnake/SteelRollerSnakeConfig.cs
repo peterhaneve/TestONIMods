@@ -55,6 +55,7 @@ namespace RollerSnake {
 
 			return wildCreature;
 		}
+
 		public GameObject CreatePrefab() {
 			var rollerSnake = CreateSteelRollerSnake(Id,
 				RollerSnakeStrings.CREATURES.SPECIES.ROLLERSNAKE.VARIANT_STEEL.NAME,
