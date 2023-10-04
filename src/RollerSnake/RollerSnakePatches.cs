@@ -6,7 +6,6 @@ using PeterHan.PLib.PatchManager;
 using PeterHan.PLib.UI;
 using System.Collections.Generic;
 using System.Reflection;
-using System.Reflection.Emit;
 using UnityEngine;
 
 namespace RollerSnake {
@@ -25,11 +24,8 @@ namespace RollerSnake {
 			CreateStaticDelegate<CreateDietaryModifier>(nameof(CreateDietaryModifier),
 			typeof(string), typeof(Tag), typeof(HashSet<Tag>), typeof(float));
 
-		internal static readonly GenerateCreatureDescriptionContainers GENERATE_DESC =
-			typeof(CodexEntryGenerator).CreateStaticDelegate<GenerateCreatureDescriptionContainers>(
-			nameof(GenerateCreatureDescriptionContainers), typeof(GameObject),
-			typeof(List<ContentContainer>));
-
+		internal static GenerateCreatureDescriptionContainers GENERATE_DESC;
+		
 		internal static readonly GenerateImageContainers GENERATE_IMAGE_CONTAINERS =
 			typeof(CodexEntryGenerator).CreateStaticDelegate<GenerateImageContainers>(
 			nameof(GenerateImageContainers), typeof(Sprite[]), typeof(List<ContentContainer>),
@@ -203,10 +199,17 @@ namespace RollerSnake {
 				// TODO Remove when versions prior to U49-574642 no longer need to be supported
 				var method = typeof(CodexEntryGenerator).GetMethodSafe(
 					"GenerateCreatureEntries", true, PPatchTools.AnyArguments);
+				System.Type targetType;
 				if (method == null) {
-					method = PPatchTools.GetTypeSafe("CodexEntryGenerator_Creatures")?.
-						GetMethodSafe("GenerateEntries", true, PPatchTools.AnyArguments);
-				}
+					targetType = PPatchTools.GetTypeSafe("CodexEntryGenerator_Creatures");
+					method = targetType?.GetMethodSafe("GenerateEntries", true,
+						PPatchTools.AnyArguments);
+				} else
+					targetType = typeof(CodexEntryGenerator);
+				GENERATE_DESC = targetType?.
+					CreateStaticDelegate<GenerateCreatureDescriptionContainers>(
+					nameof(GenerateCreatureDescriptionContainers), typeof(GameObject),
+					typeof(List<ContentContainer>));
 				return method;
 			}
 
@@ -242,24 +245,6 @@ namespace RollerSnake {
 			public static void Postfix(Tag cropID, Crop __instance) {
 				if (cropID == CactusFleshConfig.Id.ToTag())
 					SpawnCactusFlower(__instance);
-			}
-		}
-
-		/// <summary>
-		/// Applied to EntityConfigManager to fix a bug where the baby roller snake would
-		/// sometimes be loaded before the real one, depending on what other mods might be
-		/// installed or the game version. EntityConfigOrder is private and cannot be used by
-		/// mods, so is EntityConfigManager.ConfigEntry
-		/// </summary>
-		[HarmonyPatch(typeof(EntityConfigManager), "GetSortOrder")]
-		public static class EntityConfigManager_GetSortOrder_Patch {
-			/// <summary>
-			/// Applied after GetSortOrder runs.
-			/// </summary>
-			internal static void Postfix(System.Type type, ref int __result) {
-				if (type == typeof(BabyRollerSnakeConfig) || type == typeof(
-						BabySteelRollerSnakeConfig))
-					__result = 1;
 			}
 		}
 

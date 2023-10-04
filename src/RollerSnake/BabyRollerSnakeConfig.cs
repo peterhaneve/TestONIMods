@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
 namespace RollerSnake {
+	[EntityConfigOrder(1)]
 	public class BabyRollerSnakeConfig : IEntityConfig {
 		public const string Id = "RollerSnakeBaby";
 
