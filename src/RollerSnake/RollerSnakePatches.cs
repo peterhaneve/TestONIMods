@@ -5,7 +5,6 @@ using PeterHan.PLib.Database;
 using PeterHan.PLib.PatchManager;
 using PeterHan.PLib.UI;
 using System.Collections.Generic;
-using System.Reflection;
 using UnityEngine;
 
 namespace RollerSnake {
@@ -24,12 +23,11 @@ namespace RollerSnake {
 			CreateStaticDelegate<CreateDietaryModifier>(nameof(CreateDietaryModifier),
 			typeof(string), typeof(Tag), typeof(HashSet<Tag>), typeof(float));
 
-		internal static GenerateCreatureDescriptionContainers GENERATE_DESC;
-		
-		internal static readonly GenerateImageContainers GENERATE_IMAGE_CONTAINERS =
-			typeof(CodexEntryGenerator).CreateStaticDelegate<GenerateImageContainers>(
-			nameof(GenerateImageContainers), typeof(Sprite[]), typeof(List<ContentContainer>),
-			typeof(ContentContainer.ContentLayout));
+		internal static GenerateCreatureDescriptionContainers GENERATE_DESC =
+			typeof(CodexEntryGenerator_Creatures).
+			CreateStaticDelegate<GenerateCreatureDescriptionContainers>(
+			nameof(GenerateCreatureDescriptionContainers), typeof(GameObject),
+			typeof(List<ContentContainer>));
 
 		private const string TETRAMENT_ICON = "Asteroid_desert_oasis";
 
@@ -96,7 +94,7 @@ namespace RollerSnake {
 					if (baby != null)
 						babySprite = Def.GetUISprite(baby).first;
 					if (babySprite != null)
-						GENERATE_IMAGE_CONTAINERS.Invoke(new [] { first, babySprite },
+						CodexEntryGenerator.GenerateImageContainers(new [] { first, babySprite },
 							contentContainerList, ContentContainer.ContentLayout.Horizontal);
 					else
 						contentContainerList.Add(new ContentContainer(new List<ICodexWidget> {
@@ -193,26 +191,9 @@ namespace RollerSnake {
 			}
 		}
 
-		[HarmonyPatch]
-		public class CodexEntryGenerator_GenerateCreatureEntries_Patch {
-			internal static MethodBase TargetMethod() {
-				// TODO Remove when versions prior to U49-574642 no longer need to be supported
-				var method = typeof(CodexEntryGenerator).GetMethodSafe(
-					"GenerateCreatureEntries", true, PPatchTools.AnyArguments);
-				System.Type targetType;
-				if (method == null) {
-					targetType = PPatchTools.GetTypeSafe("CodexEntryGenerator_Creatures");
-					method = targetType?.GetMethodSafe("GenerateEntries", true,
-						PPatchTools.AnyArguments);
-				} else
-					targetType = typeof(CodexEntryGenerator);
-				GENERATE_DESC = targetType?.
-					CreateStaticDelegate<GenerateCreatureDescriptionContainers>(
-					nameof(GenerateCreatureDescriptionContainers), typeof(GameObject),
-					typeof(List<ContentContainer>));
-				return method;
-			}
-
+		[HarmonyPatch(typeof(CodexEntryGenerator_Creatures), nameof(
+			CodexEntryGenerator_Creatures.GenerateEntries))]
+		public class CodexEntryGenerator_Creatures_GenerateEntries_Patch {
 			public static void Postfix(Dictionary<string, CodexEntry> __result) {
 				AddToCodex(BaseRollerSnakeConfig.SpeciesId, RollerSnakeStrings.CREATURES.
 					FAMILY_PLURAL.ROLLERSNAKESPECIES, __result);

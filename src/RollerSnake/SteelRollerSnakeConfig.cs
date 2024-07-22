@@ -1,5 +1,5 @@
-﻿using UnityEngine;
-using Klei.AI;
+﻿using PeterHan.PLib.Database;
+using UnityEngine;
 
 namespace RollerSnake {
 	public class SteelRollerSnakeConfig : IEntityConfig {
@@ -29,17 +29,19 @@ namespace RollerSnake {
 			var wildCreature = EntityTemplates.ExtendEntityToWildCreature(
 				BaseRollerSnakeConfig.BaseRollerSnake(id, name, desc, anim_file, BaseTraitId,
 				is_baby, "blu_"), RollerSnakeTuning.PEN_SIZE_PER_CREATURE);
+			var amounts = Db.Get().Amounts;
 
 			var trait = Db.Get().CreateTrait(BaseTraitId, name, name, null, false, null, true,
 				true);
-			trait.Add(new AttributeModifier(Db.Get().Amounts.Calories.maxAttribute.Id,
-				RollerSnakeTuning.STANDARD_STOMACH_SIZE, name));
-			trait.Add(new AttributeModifier(Db.Get().Amounts.Calories.deltaAttribute.Id,
-				-RollerSnakeTuning.STANDARD_CALORIES_PER_CYCLE / 600.0f, name));
-			trait.Add(new AttributeModifier(Db.Get().Amounts.HitPoints.maxAttribute.Id,
-				Hitpoints, name));
-			trait.Add(new AttributeModifier(Db.Get().Amounts.Age.maxAttribute.Id, Lifespan,
+			trait.Add(PDatabaseUtils.CreateAttributeModifier(amounts.Calories.
+				maxAttribute.Id, RollerSnakeTuning.STANDARD_STOMACH_SIZE, name));
+			trait.Add(PDatabaseUtils.CreateAttributeModifier(amounts.Calories.
+				deltaAttribute.Id, -RollerSnakeTuning.STANDARD_CALORIES_PER_CYCLE / 600.0f,
 				name));
+			trait.Add(PDatabaseUtils.CreateAttributeModifier(amounts.HitPoints.
+				maxAttribute.Id, Hitpoints, name));
+			trait.Add(PDatabaseUtils.CreateAttributeModifier(amounts.Age.maxAttribute.Id,
+				Lifespan, name));
 
 			var dietInfos = BaseRollerSnakeConfig.BasicRockDiet(SimHashes.Carbon.CreateTag(),
 				CaloriesPerKg, ProducedConversionRate, null, 0.0f);
@@ -66,7 +68,8 @@ namespace RollerSnake {
 				RollerSnakeStrings.CREATURES.SPECIES.ROLLERSNAKE.VARIANT_STEEL.DESC,
 				"rollersnakeegg_kanim", RollerSnakeTuning.EGG_MASS,
 				BabySteelRollerSnakeConfig.Id, FertilityCycles, IncubationCycles,
-				RollerSnakeTuning.EGG_CHANCES_STEEL, EggSortOrder);
+				RollerSnakeTuning.EGG_CHANCES_STEEL, DlcManager.AVAILABLE_ALL_VERSIONS,
+				EggSortOrder);
 		}
 
 		public string[] GetDlcIds() {
