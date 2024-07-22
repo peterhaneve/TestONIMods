@@ -265,7 +265,7 @@ namespace RollerSnake {
 
 		[HarmonyPatch(typeof(Immigration), "ConfigureCarePackages")]
 		public static class Immigration_ConfigureCarePackages_Patch {
-			public static void Postfix(ref CarePackageInfo[] ___carePackages) {
+			public static void Postfix(ref IList<CarePackageInfo> ___carePackages) {
 				// Runs for both DLC and Base Game
 				___carePackages = new List<CarePackageInfo>(___carePackages) {
 					// Spiky Succulent Seed x1: always available
@@ -279,7 +279,7 @@ namespace RollerSnake {
 					new CarePackageInfo(RollerSnakeConfig.EggId, 3f, () => true),
 					// Aqua Bulb Sack x6: always available
 					new CarePackageInfo(AquaBulbSackConfig.Id, 6f, () => true)
-				}.ToArray();
+				};
 			}
 		}
 
