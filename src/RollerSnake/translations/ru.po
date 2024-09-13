@@ -1,0 +1,514 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: DarkEviL <darkevilx17@gmail.com>\n"
+"Language-Team: \n"
+"Language: ru_RU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Application: Oxygen Not IncludedPOT Version: 2.0\n"
+"X-Generator: Poedit 3.5\n"
+
+#. RollerSnake.RollerSnakeStrings.CLUSTER_NAMES.TETRAMENT_CLUSTER.DESCRIPTION
+msgctxt ""
+"RollerSnake.RollerSnakeStrings.CLUSTER_NAMES.TETRAMENT_CLUSTER.DESCRIPTION"
+msgid ""
+"A hot, dry cluster of visitable planetoids made from the remains of an "
+"anomalous planet."
+msgstr ""
+"Жаркое, сухое скопление пригодных для посещения планетоидов, образовавшееся "
+"из останков аномальной планеты."
+
+#. RollerSnake.RollerSnakeStrings.CLUSTER_NAMES.TETRAMENT_CLUSTER.NAME
+msgctxt "RollerSnake.RollerSnakeStrings.CLUSTER_NAMES.TETRAMENT_CLUSTER.NAME"
+msgid "Tetrament Cluster"
+msgstr "Скопление Тетрамент"
+
+#. RollerSnake.RollerSnakeStrings.CLUSTER_NAMES.VANILLA_TETRAMENT_CLUSTER.DESCRIPTION
+msgctxt ""
+"RollerSnake.RollerSnakeStrings.CLUSTER_NAMES.VANILLA_TETRAMENT_CLUSTER."
+"DESCRIPTION"
+msgid ""
+"A cluster of planets with a larger desert planetoid to start on, replicating "
+"the layout of the vanilla game's Tetrament asteroid."
+msgstr ""
+"Скопление планет с более крупным пустынным планетоидом для начала игры, "
+"повторяющее расположение астероида Тетрамент из оригинальной игры."
+
+#. RollerSnake.RollerSnakeStrings.CLUSTER_NAMES.VANILLA_TETRAMENT_CLUSTER.NAME
+msgctxt ""
+"RollerSnake.RollerSnakeStrings.CLUSTER_NAMES.VANILLA_TETRAMENT_CLUSTER.NAME"
+msgid "Tetrament Classic Cluster"
+msgstr "Классическое скопление Тетрамент"
+
+#. RollerSnake.RollerSnakeStrings.CODEX.AQUABULB.BODY.CONTAINER1
+msgctxt "RollerSnake.RollerSnakeStrings.CODEX.AQUABULB.BODY.CONTAINER1"
+msgid ""
+"The Aqua Bulb stores large amounts of water in its bulb. Its thick "
+"protective membrane prevents critters from eating the plant for its liquid "
+"reserves."
+msgstr ""
+"Водяная луковица хранит большое количество воды в своей луковице. Толстая "
+"защитная мембрана не позволяет животным съесть растение ради её запасов "
+"жидкости."
+
+#. RollerSnake.RollerSnakeStrings.CODEX.AQUABULB.SUBTITLE
+msgctxt "RollerSnake.RollerSnakeStrings.CODEX.AQUABULB.SUBTITLE"
+msgid "Aqueous Plant"
+msgstr "Водное растение"
+
+#. RollerSnake.RollerSnakeStrings.CODEX.AQUABULB.TITLE
+msgctxt "RollerSnake.RollerSnakeStrings.CODEX.AQUABULB.TITLE"
+msgid "Aqua Bulb"
+msgstr "Водяная луковица"
+
+#. RollerSnake.RollerSnakeStrings.CODEX.CACTUSFRUIT.BODY.CONTAINER1
+msgctxt "RollerSnake.RollerSnakeStrings.CODEX.CACTUSFRUIT.BODY.CONTAINER1"
+msgid ""
+"The Spiky Succulent is a curious plant. Able to survive without water for "
+"long periods of drought, it only truly thrives and fruits when given ample "
+"irrigation.\n"
+"\n"
+"Producing both an edible flesh and flower, cultivating the Spiky Succulent "
+"provides a more varied diet for Duplicants than other edible plants."
+msgstr ""
+"Колючий суккулент - любопытное растение. Он способен выживать без воды в "
+"течение длительных периодов засухи, но по-настоящему цветёт и плодоносит "
+"только при обильном поливе.\n"
+"\n"
+"Выращивание колючего суккулента, дающего как съедобную мякоть, так и цветы, "
+"обеспечивает дубликантам более разнообразный рацион питания, чем другие "
+"съедобные растения.."
+
+#. RollerSnake.RollerSnakeStrings.CODEX.CACTUSFRUIT.SUBTITLE
+msgctxt "RollerSnake.RollerSnakeStrings.CODEX.CACTUSFRUIT.SUBTITLE"
+msgid "Edible Plant"
+msgstr "Съедобное растение"
+
+#. RollerSnake.RollerSnakeStrings.CODEX.CACTUSFRUIT.TITLE
+msgctxt "RollerSnake.RollerSnakeStrings.CODEX.CACTUSFRUIT.TITLE"
+msgid "Spiky Succulent"
+msgstr "Колючий суккулент"
+
+#. RollerSnake.RollerSnakeStrings.CODEX.ROLLERSNAKE.BODY.CONTAINER1
+msgctxt "RollerSnake.RollerSnakeStrings.CODEX.ROLLERSNAKE.BODY.CONTAINER1"
+msgid ""
+"The reptilian species of Roller Snakes moves in the most peculiar way. "
+"Coiling up upon itself and rolling along in a loop is its preferred means of "
+"transportation.\n"
+"\n"
+"Despite their dry native environment, Roller Snakes do not drown in liquids."
+msgstr ""
+"Разновидность змей передвигаются самым необычным образом. Они предпочитают "
+"сворачиваться кольцом и перекатываться по земле.\n"
+"\n"
+"Несмотря на сухую среду обитания, обруч-змеи не тонут в жидкостях."
+
+#. RollerSnake.RollerSnakeStrings.CODEX.ROLLERSNAKE.BODY.CONTAINER2
+msgctxt "RollerSnake.RollerSnakeStrings.CODEX.ROLLERSNAKE.BODY.CONTAINER2"
+msgid ""
+"The rattle on the tail of the Roller Snake, while effective at warning and "
+"deterring predators in the wild, is entirely decorative in captivity and can "
+"be shorn off without any damage to the animal.\n"
+"\n"
+"Because the metal in a Roller Snake's diet is accumulated in its rattle, "
+"their rattles are highly sought after for metallurgy."
+msgstr ""
+"Погремушка на хвосте обруч-змея, которая в дикой природе эффективно "
+"предупреждает и отпугивает хищников, в неволе играет исключительно "
+"декоративную роль и может быть сострижена без какого-либо вреда для "
+"животного.\n"
+"\n"
+"Поскольку металл, входящий в рацион обруч-змеев, накапливается в их "
+"погремушках, их погремушки очень востребованы в металлургии."
+
+#. RollerSnake.RollerSnakeStrings.CODEX.ROLLERSNAKE.SPECIES_SUBTITLE
+msgctxt "RollerSnake.RollerSnakeStrings.CODEX.ROLLERSNAKE.SPECIES_SUBTITLE"
+msgid "Critter Species"
+msgstr "Вид существа"
+
+#. RollerSnake.RollerSnakeStrings.CODEX.ROLLERSNAKE.SPECIES_TITLE
+msgctxt "RollerSnake.RollerSnakeStrings.CODEX.ROLLERSNAKE.SPECIES_TITLE"
+msgid "Roller Snakes"
+msgstr "Обруч-змеи"
+
+#. RollerSnake.RollerSnakeStrings.CODEX.ROLLERSNAKE.SUBTITLE
+msgctxt "RollerSnake.RollerSnakeStrings.CODEX.ROLLERSNAKE.SUBTITLE"
+msgid "Domesticable Critter"
+msgstr "Приручаемое существо"
+
+#. RollerSnake.RollerSnakeStrings.CODEX.ROLLERSNAKE.TITLE
+msgctxt "RollerSnake.RollerSnakeStrings.CODEX.ROLLERSNAKE.TITLE"
+msgid "Roller Snake"
+msgstr "Обруч-змея"
+
+#. RollerSnake.RollerSnakeStrings.CODEX.ROLLERSNAKESTEEL.BODY.CONTAINER1
+msgctxt "RollerSnake.RollerSnakeStrings.CODEX.ROLLERSNAKESTEEL.BODY.CONTAINER1"
+msgid "<smallcaps>Pictured: \"Tough\" Roller Snake variant</smallcaps>"
+msgstr "<smallcaps>На изображении: жёсткая обруч-змея</smallcaps>"
+
+#. RollerSnake.RollerSnakeStrings.CODEX.ROLLERSNAKESTEEL.BODY.CONTAINER2
+msgctxt "RollerSnake.RollerSnakeStrings.CODEX.ROLLERSNAKESTEEL.BODY.CONTAINER2"
+msgid ""
+"Roller Snakes are known to be quite kind to their caretakers and do not bite "
+"or otherwise retaliate in response to grooming or shearing."
+msgstr ""
+"Известно, что обруч-змеи очень добры к своим хозяевам, не кусаются и не "
+"мстят в ответ на уход или стрижку."
+
+#. RollerSnake.RollerSnakeStrings.CODEX.ROLLERSNAKESTEEL.SUBTITLE
+msgctxt "RollerSnake.RollerSnakeStrings.CODEX.ROLLERSNAKESTEEL.SUBTITLE"
+msgid "Critter Morph"
+msgstr "Морфа существа"
+
+#. RollerSnake.RollerSnakeStrings.CODEX.ROLLERSNAKESTEEL.TITLE
+msgctxt "RollerSnake.RollerSnakeStrings.CODEX.ROLLERSNAKESTEEL.TITLE"
+msgid "Tough Roller Snake"
+msgstr "Жёсткая обруч-змея"
+
+#. RollerSnake.RollerSnakeStrings.CODEX.STORY_TRAITS.CRITTER_MANIPULATOR.SPECIES_ENTRIES.SNAKE
+msgctxt ""
+"RollerSnake.RollerSnakeStrings.CODEX.STORY_TRAITS.CRITTER_MANIPULATOR."
+"SPECIES_ENTRIES.SNAKE"
+msgid "There's a snake in my boot! Review data for more information."
+msgstr "У меня в ботинке змея! Подробности в сводке данных."
+
+#. RollerSnake.RollerSnakeStrings.CODEX.STORY_TRAITS.CRITTER_MANIPULATOR.SPECIES_ENTRIES_EXPANDED.ROLLERSNAKESPECIES
+msgctxt ""
+"RollerSnake.RollerSnakeStrings.CODEX.STORY_TRAITS.CRITTER_MANIPULATOR."
+"SPECIES_ENTRIES_EXPANDED.ROLLERSNAKESPECIES"
+msgid ""
+"When this creature tried to roll out of the building, the scanner nearly "
+"became caught in an infinite loop."
+msgstr ""
+"Когда это существо попыталось выкатиться из здания, сканер едва не застрял в "
+"бесконечном цикле."
+
+#. RollerSnake.RollerSnakeStrings.CREATURES.FAMILY.ROLLERSNAKESPECIES
+msgctxt "RollerSnake.RollerSnakeStrings.CREATURES.FAMILY.ROLLERSNAKESPECIES"
+msgid "<link=\"ROLLERSNAKE\">Roller Snake</link>"
+msgstr "<link=\"ROLLERSNAKE\">Обруч-змея</link>"
+
+#. RollerSnake.RollerSnakeStrings.CREATURES.FAMILY_PLURAL.ROLLERSNAKESPECIES
+msgctxt ""
+"RollerSnake.RollerSnakeStrings.CREATURES.FAMILY_PLURAL.ROLLERSNAKESPECIES"
+msgid "Roller Snakes"
+msgstr "Обруч-змеи"
+
+#. RollerSnake.RollerSnakeStrings.CREATURES.SPECIES.AQUABULB.DESC
+msgctxt "RollerSnake.RollerSnakeStrings.CREATURES.SPECIES.AQUABULB.DESC"
+msgid ""
+"<link=\"AQUABULB\">Aqua Bulbs</link> are incapable of propagating but can be "
+"harvested for a single, <link=\"WATER\">Water</link>-filled sack. The "
+"<link=\"ROCKCRUSHER\">Rock Crusher</link> can be used to extract the water "
+"within it."
+msgstr ""
+"<link=\"AQUABULB\">Водяные луковицы</link> не способны к размножению, но "
+"могут быть собраны для получения одного мешка, наполненного "
+"<link=\"WATER\">водой</link>. Для извлечения воды из него можно использовать "
+"<link=\"ROCKCRUSHER\">камнедробитель</link>."
+
+#. RollerSnake.RollerSnakeStrings.CREATURES.SPECIES.AQUABULB.NAME
+msgctxt "RollerSnake.RollerSnakeStrings.CREATURES.SPECIES.AQUABULB.NAME"
+msgid "<link=\"AQUABULB\">Aqua Bulb</link>"
+msgstr "<link=\"AQUABULB\">Водяная луковица</link>"
+
+#. RollerSnake.RollerSnakeStrings.CREATURES.SPECIES.CACTUSFRUIT.DESC
+msgctxt "RollerSnake.RollerSnakeStrings.CREATURES.SPECIES.CACTUSFRUIT.DESC"
+msgid ""
+"Spiky to the touch, the <link=\"CACTUSFRUIT\">Spiky Succulent</link> "
+"produces both an edible <link=\"CACTUSFLESH\">Flesh</link> and "
+"<link=\"CACTUSFLOWER\">Flower</link>."
+msgstr ""
+"Колючий на ощупь <link=\"CACTUSFRUIT\">суккулент</link>, производит "
+"съедобную <link=\"CACTUSFLESH\">мякость</link> и "
+"<link=\"CACTUSFLOWER\">цветок</link>."
+
+#. RollerSnake.RollerSnakeStrings.CREATURES.SPECIES.CACTUSFRUIT.NAME
+msgctxt "RollerSnake.RollerSnakeStrings.CREATURES.SPECIES.CACTUSFRUIT.NAME"
+msgid "<link=\"CACTUSFRUIT\">Spiky Succulent</link>"
+msgstr "<link=\"CACTUSFRUIT\">Колючий суккулент</link>"
+
+#. RollerSnake.RollerSnakeStrings.CREATURES.SPECIES.ROLLERSNAKE.BABY.DESC
+msgctxt ""
+"RollerSnake.RollerSnakeStrings.CREATURES.SPECIES.ROLLERSNAKE.BABY.DESC"
+msgid ""
+"The young of a <link=\"ROLLERSNAKE\">Roller Snake</link>. Smaller and has "
+"trouble rolling up into an actual loop."
+msgstr ""
+"Детёныш <link=\"ROLLERSNAKE\">обруч-змеи</link>. Маленький и с трудом "
+"сворачивается в обруч."
+
+#. RollerSnake.RollerSnakeStrings.CREATURES.SPECIES.ROLLERSNAKE.BABY.NAME
+msgctxt ""
+"RollerSnake.RollerSnakeStrings.CREATURES.SPECIES.ROLLERSNAKE.BABY.NAME"
+msgid "<link=\"ROLLERSNAKE\">Roller Snakelet</link>"
+msgstr "<link=\"ROLLERSNAKE\">Обруч-змейка</link>"
+
+#. RollerSnake.RollerSnakeStrings.CREATURES.SPECIES.ROLLERSNAKE.DESC
+msgctxt "RollerSnake.RollerSnakeStrings.CREATURES.SPECIES.ROLLERSNAKE.DESC"
+msgid "A peculiar critter that moves by winding into a loop and rolling."
+msgstr ""
+"Необычное животное, которое передвигается, сворачиваясь в обруч и "
+"перекатываясь."
+
+#. RollerSnake.RollerSnakeStrings.CREATURES.SPECIES.ROLLERSNAKE.EGG_NAME
+msgctxt "RollerSnake.RollerSnakeStrings.CREATURES.SPECIES.ROLLERSNAKE.EGG_NAME"
+msgid "<link=\"ROLLERSNAKE\">Roller Snakelet Egg</link>"
+msgstr "<link=\"ROLLERSNAKE\">Яйцо обруч-змеи</link>"
+
+#. RollerSnake.RollerSnakeStrings.CREATURES.SPECIES.ROLLERSNAKE.NAME
+msgctxt "RollerSnake.RollerSnakeStrings.CREATURES.SPECIES.ROLLERSNAKE.NAME"
+msgid "<link=\"ROLLERSNAKE\">Roller Snake</link>"
+msgstr "<link=\"ROLLERSNAKE\">Обруч-змея</link>"
+
+#. RollerSnake.RollerSnakeStrings.CREATURES.SPECIES.ROLLERSNAKE.VARIANT_STEEL.BABY.DESC
+msgctxt ""
+"RollerSnake.RollerSnakeStrings.CREATURES.SPECIES.ROLLERSNAKE.VARIANT_STEEL."
+"BABY.DESC"
+msgid ""
+"The young of a <link=\"ROLLERSNAKESTEEL\">Tough Roller Snake</link>. Smaller "
+"and has trouble rolling up into an actual loop."
+msgstr ""
+"Детёныш <link=\"ROLLERSNAKESTEEL\">Жёсткой обруч-змеи</link>. Маленький и с "
+"трудом сворачивается в обруч."
+
+#. RollerSnake.RollerSnakeStrings.CREATURES.SPECIES.ROLLERSNAKE.VARIANT_STEEL.BABY.NAME
+msgctxt ""
+"RollerSnake.RollerSnakeStrings.CREATURES.SPECIES.ROLLERSNAKE.VARIANT_STEEL."
+"BABY.NAME"
+msgid "<link=\"ROLLERSNAKESTEEL\">Tough Roller Snakelet</link>"
+msgstr "<link=\"ROLLERSNAKESTEEL\">Жёсткая обруч-змейка</link>"
+
+#. RollerSnake.RollerSnakeStrings.CREATURES.SPECIES.ROLLERSNAKE.VARIANT_STEEL.DESC
+msgctxt ""
+"RollerSnake.RollerSnakeStrings.CREATURES.SPECIES.ROLLERSNAKE.VARIANT_STEEL."
+"DESC"
+msgid "A peculiar critter that moves by winding into a loop and rolling."
+msgstr ""
+"Необычное животное, которое передвигается, сворачиваясь в обруч и "
+"перекатываясь."
+
+#. RollerSnake.RollerSnakeStrings.CREATURES.SPECIES.ROLLERSNAKE.VARIANT_STEEL.EGG_NAME
+msgctxt ""
+"RollerSnake.RollerSnakeStrings.CREATURES.SPECIES.ROLLERSNAKE.VARIANT_STEEL."
+"EGG_NAME"
+msgid "<link=\"ROLLERSNAKESTEEL\">Tough Roller Snakelet Egg</link>"
+msgstr "<link=\"ROLLERSNAKESTEEL\">Яйцо жёсткой обруч-змеи</link>"
+
+#. RollerSnake.RollerSnakeStrings.CREATURES.SPECIES.ROLLERSNAKE.VARIANT_STEEL.NAME
+msgctxt ""
+"RollerSnake.RollerSnakeStrings.CREATURES.SPECIES.ROLLERSNAKE.VARIANT_STEEL."
+"NAME"
+msgid "<link=\"ROLLERSNAKESTEEL\">Tough Roller Snake</link>"
+msgstr "<link=\"ROLLERSNAKESTEEL\">Жёсткая обруч-змея</link>"
+
+#. RollerSnake.RollerSnakeStrings.CREATURES.SPECIES.SEEDS.CACTUSFRUITSEED.DESC
+msgctxt ""
+"RollerSnake.RollerSnakeStrings.CREATURES.SPECIES.SEEDS.CACTUSFRUITSEED.DESC"
+msgid ""
+"The beginnings of a <link=\"CACTUSFRUIT\">Spiky Succulent</link>. Just add "
+"<link=\"WATER\">Water</link>."
+msgstr ""
+"Первые ростки <link=\"CACTUSFRUIT\">колючего суккулента</link>. Просто "
+"добавьте <link=\"WATER\">воды</link>."
+
+#. RollerSnake.RollerSnakeStrings.CREATURES.SPECIES.SEEDS.CACTUSFRUITSEED.DOMESTICATEDDESC
+msgctxt ""
+"RollerSnake.RollerSnakeStrings.CREATURES.SPECIES.SEEDS.CACTUSFRUITSEED."
+"DOMESTICATEDDESC"
+msgid ""
+"This cactus <link=\"PLANTS\">Plant</link> survives well in the harsh, dry "
+"desert. To thrive and flower, it needs copious amounts of "
+"<link=\"WATER\">Water</link>."
+msgstr ""
+"Это кактусовое <link=\"PLANTS\">растение</link> хорошо приживается в "
+"суровых, сухих условиях пустыни. Чтобы расти и цвести, ему требуется "
+"обильное количество <link=\"WATER\">воды</link>."
+
+#. RollerSnake.RollerSnakeStrings.CREATURES.SPECIES.SEEDS.CACTUSFRUITSEED.NAME
+msgctxt ""
+"RollerSnake.RollerSnakeStrings.CREATURES.SPECIES.SEEDS.CACTUSFRUITSEED.NAME"
+msgid "<link=\"CACTUSFRUIT\">Spiky Succulent Seed</link>"
+msgstr "<link=\"CACTUSFRUIT\">Семя колючего суккулента</link>"
+
+#. RollerSnake.RollerSnakeStrings.ITEMS.FOOD.CACTUSFLESH.DESC
+msgctxt "RollerSnake.RollerSnakeStrings.ITEMS.FOOD.CACTUSFLESH.DESC"
+msgid ""
+"The barely edible flesh of a <link=\"CACTUSFRUIT\">Spiky Succulent</link>."
+msgstr ""
+"Едва съедобная мякоть <link=\"CACTUSFRUIT\">колючего суккулента</link>."
+
+#. RollerSnake.RollerSnakeStrings.ITEMS.FOOD.CACTUSFLESH.NAME
+msgctxt "RollerSnake.RollerSnakeStrings.ITEMS.FOOD.CACTUSFLESH.NAME"
+msgid "<link=\"CACTUSFLESH\">Cactus Flesh</link>"
+msgstr "<link=\"CACTUSFLESH\">Мякоть кактуса</link>"
+
+#. RollerSnake.RollerSnakeStrings.ITEMS.FOOD.CACTUSFLESHGRILLED.DESC
+msgctxt "RollerSnake.RollerSnakeStrings.ITEMS.FOOD.CACTUSFLESHGRILLED.DESC"
+msgid ""
+"The grilled flesh of a <link=\"CACTUSFRUIT\">Spiky Succulent</link>.\n"
+"\n"
+"Grilling renders the prickly bits mostly harmless."
+msgstr ""
+"Жареная мякоть <link=\"CACTUSFRUIT\">колючего суккулента</link>.\n"
+"\n"
+"Гриль делает колючие кусочки практически безвредными."
+
+#. RollerSnake.RollerSnakeStrings.ITEMS.FOOD.CACTUSFLESHGRILLED.NAME
+msgctxt "RollerSnake.RollerSnakeStrings.ITEMS.FOOD.CACTUSFLESHGRILLED.NAME"
+msgid "<link=\"CACTUSFLESHGRILLED\">Grilled Cactus Flesh</link>"
+msgstr "<link=\"CACTUSFLESHGRILLED\">Жареная мякоть кактуса</link>"
+
+#. RollerSnake.RollerSnakeStrings.ITEMS.FOOD.CACTUSFLESHGRILLED.RECIPEDESC
+msgctxt ""
+"RollerSnake.RollerSnakeStrings.ITEMS.FOOD.CACTUSFLESHGRILLED.RECIPEDESC"
+msgid "Tasty grilled <link=\"CACTUSFLESH\">Cactus Flesh</link>."
+msgstr "Вкусная <link=\"CACTUSFLESH\">мякоть кактуса</link> жареная на гриле."
+
+#. RollerSnake.RollerSnakeStrings.ITEMS.FOOD.CACTUSFLOWER.DESC
+msgctxt "RollerSnake.RollerSnakeStrings.ITEMS.FOOD.CACTUSFLOWER.DESC"
+msgid ""
+"The edible and sugary red flower of a <link=\"CACTUSFRUIT\">Spiky Succulent</"
+"link>."
+msgstr ""
+"Съедобный и сладкий красный цветок <link=\"CACTUSFRUIT\">колючего "
+"суккулента</link>."
+
+#. RollerSnake.RollerSnakeStrings.ITEMS.FOOD.CACTUSFLOWER.NAME
+msgctxt "RollerSnake.RollerSnakeStrings.ITEMS.FOOD.CACTUSFLOWER.NAME"
+msgid "<link=\"CACTUSFLOWER\">Cactus Flower</link>"
+msgstr "<link=\"CACTUSFLOWER\">Цветок кактуса</link>"
+
+#. RollerSnake.RollerSnakeStrings.ITEMS.FOOD.CACTUSFLOWERSALAD.DESC
+msgctxt "RollerSnake.RollerSnakeStrings.ITEMS.FOOD.CACTUSFLOWERSALAD.DESC"
+msgid ""
+"Delectable <link=\"CACTUSFLOWER\">Cactus Flower</link> mixed with crunchy "
+"<link=\"LETTUCE\">Lettuce</link>.\n"
+"\n"
+"The blend of cool and sweet makes one's taste buds delight."
+msgstr ""
+"Восхитительный <link=\"CACTUSFLOWER\">цветок кактуса</link> смешанный с "
+"хрустящим <link=\"LETTUCE\">салатом</link>.\n"
+"\n"
+"Сочетание прохлады и сладости приводит вкусовые рецепторы в восторг."
+
+#. RollerSnake.RollerSnakeStrings.ITEMS.FOOD.CACTUSFLOWERSALAD.NAME
+msgctxt "RollerSnake.RollerSnakeStrings.ITEMS.FOOD.CACTUSFLOWERSALAD.NAME"
+msgid "<link=\"CACTUSFLOWERSALAD\">Flower Salad</link>"
+msgstr "<link=\"CACTUSFLOWERSALAD\">Цветочный салат</link>"
+
+#. RollerSnake.RollerSnakeStrings.ITEMS.FOOD.CACTUSFLOWERSALAD.RECIPEDESC
+msgctxt ""
+"RollerSnake.RollerSnakeStrings.ITEMS.FOOD.CACTUSFLOWERSALAD.RECIPEDESC"
+msgid "Mixed and seared <link=\"CACTUSFLOWERSALAD\">Flower Salad</link>."
+msgstr ""
+"Смешанный и обжаренный <link=\"CACTUSFLOWERSALAD\">цветочный салат</link>."
+
+#. RollerSnake.RollerSnakeStrings.ITEMS.INDUSTRIAL_PRODUCTS.AQUABULBSACK.DESC
+msgctxt ""
+"RollerSnake.RollerSnakeStrings.ITEMS.INDUSTRIAL_PRODUCTS.AQUABULBSACK.DESC"
+msgid ""
+"The bulbous, water-filled membrane of a <link=\"AQUABULB\">Aqua Bulb</link>. "
+"The water within can be used by Duplicants once the membrane is ruptured. "
+"The <link=\"ROCKCRUSHER\">Rock Crusher</link> can be used to extract the "
+"water within."
+msgstr ""
+"Колбообразная, заполненная водой мембрана <link=\"AQUABULB\">водяной "
+"луковицы</link>. Вода, находящаяся внутри, может быть использована "
+"дубликантами после разрыва мембраны. Для извлечения воды можно использовать "
+"<link=\"ROCKCRUSHER\">камнедробитель</link>."
+
+#. RollerSnake.RollerSnakeStrings.ITEMS.INDUSTRIAL_PRODUCTS.AQUABULBSACK.NAME
+msgctxt ""
+"RollerSnake.RollerSnakeStrings.ITEMS.INDUSTRIAL_PRODUCTS.AQUABULBSACK.NAME"
+msgid "<link=\"AQUABULBSACK\">Aqua Bulb Sack</link>"
+msgstr "<link=\"AQUABULBSACK\">Мешок водяной луковицы</link>"
+
+#. RollerSnake.RollerSnakeStrings.SUBWORLDS.TESTDESERT.DESC
+msgctxt "RollerSnake.RollerSnakeStrings.SUBWORLDS.TESTDESERT.DESC"
+msgid ""
+"Warm and dry, this biome contains sparse <link=\"PLANTS\">plant life</link> "
+"and <link=\"CREATURES\">critters</link> adapted to its climate. With some "
+"adaptation, these resources can be used to sustain a growing colony."
+msgstr ""
+"Тёплый и сухой, этот биом содержит редкую <link=\"PLANTS\">растительную "
+"жизнь</link> и <link=\"CREATURES\">живность</link>, приспособленную к его "
+"климату. При определенной адаптации эти ресурсы могут быть использованы для "
+"поддержания растущей колонии."
+
+#. RollerSnake.RollerSnakeStrings.SUBWORLDS.TESTDESERT.NAME
+msgctxt "RollerSnake.RollerSnakeStrings.SUBWORLDS.TESTDESERT.NAME"
+msgid "Desert"
+msgstr "Пустыня"
+
+#. RollerSnake.RollerSnakeStrings.SUBWORLDS.TESTDESERT.UTILITY
+msgctxt "RollerSnake.RollerSnakeStrings.SUBWORLDS.TESTDESERT.UTILITY"
+msgid ""
+"<link=\"SAND\">Sand</link> and <link=\"SANDSTONE\">Sandstone</link> dominate "
+"this biome, with small pockets of <link=\"GAS\">Gas</link> mixed in. "
+"Deposits of <link=\"IRONORE\">Iron Ore</link> and <link=\"FOSSIL\">Fossil</"
+"link> will be useful for industry, and scans suggest the presence of "
+"<link=\"CRUDEOIL\">Crude Oil</link> and <link=\"CARBON\">Coal</link> for "
+"power.\n"
+"\n"
+"Though there are few sources of <link=\"WATER\">Water</link> or "
+"<link=\"OXYGEN\">Oxygen</link> here, there is nothing inherently dangerous "
+"here to harm my Duplicants. It should be safe enough to explore."
+msgstr ""
+"В этом биоме преобладают <link=\"SAND\">песок</link> и "
+"<link=\"SANDSTONE\">песчаник</link> с небольшими вкраплениями "
+"<link=\"GAS\">газа</link>. Залежи <link=\"IRONORE\">железной руды</link> и "
+"<link=\"FOSSIL\">ископаемых</link> будут полезны для промышленности, также "
+"сканирование показывает наличие <link=\"CRUDEOIL\">сырой нефти</link> и "
+"<link=\"CARBON\">угля</link> для выработки электроэнергии.\n"
+"\n"
+"Хотя здесь мало источников <link=\"WATER\">воды или "
+"<link=\"OXYGEN\">кислорода</link>, здесь нет ничего изначально опасного, что "
+"могло бы навредить моим дубликантам. Здесь должно быть достаточно безопасно "
+"для исследования."
+
+#. RollerSnake.RollerSnakeStrings.WORLDS.TETRAMENT.DESCRIPTION
+msgctxt "RollerSnake.RollerSnakeStrings.WORLDS.TETRAMENT.DESCRIPTION"
+msgid ""
+"A location with moderately hot temperatures, Tetrament is home to large "
+"expanses of hot, dry desert in addition to its lush forests, swamps, and "
+"jungles.\n"
+"\n"
+"<smallcaps>Tetrament is an ideal location for Duplicant life. Its "
+"environment is quite different from other locations but is not any more "
+"challenging.</smallcaps>\n"
+"\n"
+msgstr ""
+"Расположенный в регионе с умеренно жаркими температурами, Тетрамент является "
+"домом для обширных пространств жаркой и сухой пустыни, а также пышных лесов, "
+"болот и джунглей.\n"
+"\n"
+"<smallcaps>Тетрамент - идеальное место для жизни дубликантов. Его среда "
+"сильно отличается от других мест, но не является более сложной.\n"
+
+#. RollerSnake.RollerSnakeStrings.WORLDS.TETRAMENT.NAME
+msgctxt "RollerSnake.RollerSnakeStrings.WORLDS.TETRAMENT.NAME"
+msgid "Tetrament"
+msgstr "Тетрамент"
+
+#. RollerSnake.RollerSnakeStrings.WORLDS.TETRAMENT_WARP.DESCRIPTION
+msgctxt "RollerSnake.RollerSnakeStrings.WORLDS.TETRAMENT_WARP.DESCRIPTION"
+msgid ""
+"A large-ish forested asteroid with a frozen radioactive core.\n"
+"\n"
+"<smallcaps>While Dry Radioactive Forest Asteroids are largely foresty, they "
+"also contain a great deal of rust and salt.</smallcaps>"
+msgstr ""
+"Довольно большой лесистый астероид с замерзшим радиоактивным ядром.\n"
+"\n"
+"<smallcaps>Помимо огромного количества лесов, на таких астероидах ещё очень "
+"много ржавчины и океанов.</smallcaps>"
+
+#. RollerSnake.RollerSnakeStrings.WORLDS.TETRAMENT_WARP.NAME
+msgctxt "RollerSnake.RollerSnakeStrings.WORLDS.TETRAMENT_WARP.NAME"
+msgid "Dry Radioactive Forest Asteroid"
+msgstr "Астероид с сухими радиоактивными лесами"
