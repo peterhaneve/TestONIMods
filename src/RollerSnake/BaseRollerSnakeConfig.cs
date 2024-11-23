@@ -1,9 +1,16 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using Klei.AI;
+using PeterHan.PLib.Detours;
 
 namespace RollerSnake {
 	public class BaseRollerSnakeConfig {
+		// TODO Remove once versions prior to U53-642695 no longer need to be supported
+		private delegate Diet.Info NewDietInfo(HashSet<Tag> consumed_tags, Tag produced_element, float calories_per_kg,
+			float produced_conversion_rate, string disease_id, float disease_per_kg_produced);
+
+		private static readonly NewDietInfo NEW_DIET_INFO = PDetours.DetourConstructor<NewDietInfo>(typeof(Diet.Info));
+
 		public const string NavGridId = "WalkerNavGrid1x1";
 		public const string NavGridBabyId = "WalkerBabyNavGrid";
 		public const float Mass = 100.0f;
@@ -72,7 +79,7 @@ namespace RollerSnake {
 		public static List<Diet.Info> BasicRockDiet(Tag poopTag, float caloriesPerKg, float producedConversionRate, string diseaseId, float diseasePerKgProduced) {
 			return new List<Diet.Info>
 			{
-				new Diet.Info(new HashSet<Tag>
+				NEW_DIET_INFO.Invoke(new HashSet<Tag>
 				{
 					SimHashes.Sand.CreateTag(),
 					SimHashes.SandStone.CreateTag(),
