@@ -24,7 +24,6 @@ namespace RollerSnake {
 
 			var foodInfo = new EdiblesManager.FoodInfo(
 				id: Id,
-				dlcId: DlcManager.VANILLA_ID,
 				caloriesPerUnit: 4200000f,
 				quality: TUNING.FOOD.FOOD_QUALITY_AMAZING,
 				preserveTemperatue: 255.15f,

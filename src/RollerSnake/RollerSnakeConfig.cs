@@ -65,16 +65,16 @@ namespace RollerSnake {
 				RollerSnakeStrings.CREATURES.SPECIES.ROLLERSNAKE.NAME,
 				RollerSnakeStrings.CREATURES.SPECIES.ROLLERSNAKE.DESC,
 				"rollersnake_kanim", false);
-			return EntityTemplates.ExtendEntityToFertileCreature(rollerSnake, EggId,
+			return EntityTemplates.ExtendEntityToFertileCreature(rollerSnake, null, EggId,
 				RollerSnakeStrings.CREATURES.SPECIES.ROLLERSNAKE.EGG_NAME,
 				RollerSnakeStrings.CREATURES.SPECIES.ROLLERSNAKE.DESC, "rollersnakeegg_kanim",
 				RollerSnakeTuning.EGG_MASS, BabyRollerSnakeConfig.Id, FertilityCycles,
 				IncubationCycles, RollerSnakeTuning.EGG_CHANCES_BASE,
-				DlcManager.AVAILABLE_ALL_VERSIONS, EggSortOrder);
+				EggSortOrder);
 		}
 
 		public string[] GetDlcIds() {
-			return DlcManager.AVAILABLE_ALL_VERSIONS;
+			return null;
 		}
 
 		public void OnPrefabInit(GameObject prefab) {

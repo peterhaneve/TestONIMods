@@ -52,6 +52,7 @@ namespace RollerSnake {
 
 			var seed = EntityTemplates.CreateAndRegisterSeedForPlant(
 				plant: cactusFruit,
+				dlcRestrictions: null,
 				productionType: SeedProducer.ProductionType.Harvest,
 				id: SeedId,
 				name: RollerSnakeStrings.CREATURES.SPECIES.SEEDS.CACTUSFRUITSEED.NAME,
@@ -79,7 +80,7 @@ namespace RollerSnake {
 		}
 
 		public string[] GetDlcIds() {
-			return DlcManager.AVAILABLE_ALL_VERSIONS;
+			return null;
 		}
 
 		public void OnPrefabInit(GameObject inst) { }

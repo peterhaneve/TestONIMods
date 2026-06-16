@@ -63,13 +63,12 @@ namespace RollerSnake {
 				RollerSnakeStrings.CREATURES.SPECIES.ROLLERSNAKE.VARIANT_STEEL.NAME,
 				RollerSnakeStrings.CREATURES.SPECIES.ROLLERSNAKE.VARIANT_STEEL.DESC,
 				"rollersnake_kanim", false);
-			return EntityTemplates.ExtendEntityToFertileCreature(rollerSnake, EggId,
+			return EntityTemplates.ExtendEntityToFertileCreature(rollerSnake, null, EggId,
 				RollerSnakeStrings.CREATURES.SPECIES.ROLLERSNAKE.VARIANT_STEEL.EGG_NAME,
 				RollerSnakeStrings.CREATURES.SPECIES.ROLLERSNAKE.VARIANT_STEEL.DESC,
 				"rollersnakeegg_kanim", RollerSnakeTuning.EGG_MASS,
 				BabySteelRollerSnakeConfig.Id, FertilityCycles, IncubationCycles,
-				RollerSnakeTuning.EGG_CHANCES_STEEL, DlcManager.AVAILABLE_ALL_VERSIONS,
-				EggSortOrder);
+				RollerSnakeTuning.EGG_CHANCES_STEEL, EggSortOrder);
 		}
 
 		public string[] GetDlcIds() {

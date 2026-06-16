@@ -32,7 +32,7 @@ namespace RollerSnake {
 		}
 
 		public string[] GetDlcIds() {
-			return DlcManager.AVAILABLE_ALL_VERSIONS;
+			return null;
 		}
 
 		public void OnPrefabInit(GameObject inst) { }
