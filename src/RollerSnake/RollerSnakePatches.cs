@@ -54,7 +54,7 @@ namespace RollerSnake {
 			string desc = string.Empty;
 			if (prefab.TryGetComponent(out Edible edible)) {
 				perUnit = edible.FoodInfo.CaloriesPerUnit;
-				kcal = CactusFlowerConfig.UnitsToSpawn;
+				kcal = CactusFlowerConfig.UnitsToSpawn * perUnit;
 			}
 			if (prefab.TryGetComponent(out InfoDescription component2))
 				desc = component2.description;
@@ -221,8 +221,8 @@ namespace RollerSnake {
 			}
 		}
 
-		[HarmonyPatch(typeof(Crop), nameof(Crop.SpawnSomeFruit))]
-		public class Crop_SpawnSomeFruit_Patch {
+		[HarmonyPatch(typeof(Crop), nameof(Crop.SpawnAndGetSomeFruit))]
+		public class Crop_SpawnAndGetSomeFruit_Patch {
 			public static void Postfix(Tag cropID, Crop __instance) {
 				if (cropID == CactusFleshConfig.Id.ToTag())
 					SpawnCactusFlower(__instance);

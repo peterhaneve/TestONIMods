@@ -5,12 +5,6 @@ using PeterHan.PLib.Detours;
 
 namespace RollerSnake {
 	public class BaseRollerSnakeConfig {
-		// TODO Remove once versions prior to U53-642695 no longer need to be supported
-		private delegate Diet.Info NewDietInfo(HashSet<Tag> consumed_tags, Tag produced_element, float calories_per_kg,
-			float produced_conversion_rate, string disease_id, float disease_per_kg_produced);
-
-		private static readonly NewDietInfo NEW_DIET_INFO = PDetours.DetourConstructor<NewDietInfo>(typeof(Diet.Info));
-
 		public const string NavGridId = "WalkerNavGrid1x1";
 		public const string NavGridBabyId = "WalkerBabyNavGrid";
 		public const float Mass = 100.0f;
@@ -27,7 +21,8 @@ namespace RollerSnake {
 		public const float TemperatureLethalHigh = 448.15f;
 
 		public static GameObject BaseRollerSnake(string id, string name, string desc, string anim_file, string traitId, bool is_baby, string symbolOverridePrefix = null) {
-			var snake = EntityTemplates.CreatePlacedEntity(id, name, desc, Mass, Assets.GetAnim(anim_file), "idle_loop", Grid.SceneLayer.Creatures,
+			var anim = Assets.GetAnim(anim_file);
+			var snake = EntityTemplates.CreatePlacedEntity(id, name, desc, Mass, anim, "idle_loop", Grid.SceneLayer.Creatures,
 				width: 1,
 				height: 1,
 				TUNING.DECOR.BONUS.TIER1, new EffectorValues(), SimHashes.Creature, null, DefaultTemperature);
@@ -41,7 +36,7 @@ namespace RollerSnake {
 				warningHighTemperature: TemperatureWarningHigh,
 				lethalHighTemperature: TemperatureLethalHigh);
 			if (symbolOverridePrefix != null)
-				snake.AddOrGet<SymbolOverrideController>().ApplySymbolOverridesByAffix(Assets.GetAnim(anim_file), symbolOverridePrefix);
+				snake.AddOrGet<SymbolOverrideController>().ApplySymbolOverridesByAffix(anim, symbolOverridePrefix);
 			snake.AddOrGet<Trappable>();
 			snake.AddOrGetDef<CreatureFallMonitor.Def>();
 			snake.AddOrGetDef<ThreatMonitor.Def>().fleethresholdState = Health.HealthState.Dead;
@@ -68,8 +63,14 @@ namespace RollerSnake {
 				.Add(new RanchedStates.Def(), !is_baby)
 				.Add(new LayEggStates.Def())
 				.Add(new EatStates.Def())
-				.Add(new PlayAnimsStates.Def(GameTags.Creatures.Poop, false, "poop", STRINGS.CREATURES.STATUSITEMS.EXPELLING_SOLID.NAME, STRINGS.CREATURES.STATUSITEMS.EXPELLING_SOLID.TOOLTIP))
+				.Add(new DrinkMilkStates.Def
+				{
+					shouldBeBehindMilkTank = false,
+					drinkCellOffsetGetFn = (is_baby ? new DrinkMilkStates.Def.DrinkCellOffsetGetFn(DrinkMilkStates.Def.DrinkCellOffsetGet_CritterOneByOne) : new DrinkMilkStates.Def.DrinkCellOffsetGetFn(DrinkMilkStates.Def.DrinkCellOffsetGet_TwoByTwo))
+				}, true, -1)
+				.Add(new PoopStates.Def(anim, STRINGS.CREATURES.STATUSITEMS.EXPELLING_SOLID.NAME, STRINGS.CREATURES.STATUSITEMS.EXPELLING_SOLID.TOOLTIP, false))
 				.Add(new CallAdultStates.Def()).PopInterruptGroup()
+				.Add(new CritterCondoStates.Def(), !is_baby)
 				.Add(new IdleStates.Def());
 			EntityTemplates.AddCreatureBrain(snake, choreTable, SpeciesId, symbolOverridePrefix);
 			snake.AddTag(GameTags.Amphibious);
@@ -79,7 +80,7 @@ namespace RollerSnake {
 		public static List<Diet.Info> BasicRockDiet(Tag poopTag, float caloriesPerKg, float producedConversionRate, string diseaseId, float diseasePerKgProduced) {
 			return new List<Diet.Info>
 			{
-				NEW_DIET_INFO.Invoke(new HashSet<Tag>
+				new Diet.Info(new HashSet<Tag>
 				{
 					SimHashes.Sand.CreateTag(),
 					SimHashes.SandStone.CreateTag(),
